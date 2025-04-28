@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Ajustalo según la altura de tu navbar */
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/*  */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0f0f0f;
+  margin: 0;
+}
+
+.bg-hero-pattern {
+  background-image: radial-gradient(#4f46e5 0.5px, transparent 1px);
+  background-size: 40px 40px;
+  animation: pulseBg 4s;
+  /* animation: pulseBg 6s infinite alternate; */
+}
+
+@keyframes pulseBg {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
+/*  */
