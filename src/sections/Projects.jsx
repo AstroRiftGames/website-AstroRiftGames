@@ -87,9 +87,6 @@ const Projects = () => {
                   >
                     Jugar Ahora
                   </a>
-                  <button className="border-2 border-indigo-600 text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                    Ver Más
-                  </button>
                 </div>
               </div>
             </div>
