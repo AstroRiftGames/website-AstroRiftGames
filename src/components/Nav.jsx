@@ -71,14 +71,14 @@ function Nav() {
             </div>
 
             {/* Logo centrado */}
-            <div className="flex-1 flex justify-center">
-              <a href="#hero" onClick={() => handleMenuClick('#hero')} className="flex items-center">
-                <img 
-                  src="/images/argBanner.png" 
-                  alt="Astro Rift Games" 
-                  className="h-10 md:h-12 object-contain hover:scale-105 transition-transform duration-300" 
-                />
-              </a>
+              <div className="flex-1 flex justify-center items-center">
+                <a href="#hero" onClick={() => handleMenuClick('#hero')}>
+                  <img 
+                    src="/images/NombreLOGO.png" 
+                    alt="Astro Rift Games" 
+                    className="h-10 md:h-12 object-contain hover:scale-105 transition-transform duration-300 drop-shadow-xl"
+                  />
+                </a>
             </div>
 
             {/* Botón CTA derecha + Botón de idioma */}
