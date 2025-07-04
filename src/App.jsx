@@ -1,5 +1,5 @@
 import './App.css'
-import { Nav, Footer } from './components'
+import { Nav, Footer } from './components/index'
 import { Hero, About, Services, Projects, Contact } from './sections'
 import { LanguageProvider } from './context/LanguageContext'
 
