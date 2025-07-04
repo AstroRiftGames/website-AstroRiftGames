@@ -1,7 +1,7 @@
 import './App.css'
-import { Nav, Footer } from './components';
-import { Hero, About, Services, Projects, Contact } from './sections/'
-import { LanguageProvider } from './context/LanguageContext';
+import { Nav, Footer } from './components'
+import { Hero, About, Services, Projects, Contact } from './sections'
+import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
   return (
