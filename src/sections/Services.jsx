@@ -1,22 +1,26 @@
+import { useLanguage } from '../context/LanguageContext';
+
 const Services = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
-      title: "Desarrollo a medida",
-      description: "Creamos videojuegos desde cero, adaptados completamente a tus ideas y visión única.",
+      title: t('desarrolloTitle'),
+      description: t('desarrolloText'),
       icon: "💻",
-      features: ["Motor Unity", "Programación C#", "Multiplataforma"]
+      features: [t('motorUnity'), t('programacionCS'), t('multiplataforma')]
     },
     {
-      title: "Arte y animación",
-      description: "Diseño visual único y animaciones fluidas que dan vida a cada proyecto.",
+      title: t('arteTitle'),
+      description: t('arteText'),
       icon: "🎨",
-      features: ["Arte 2D", "Diseño de Personajes", "Diseño UI/UX"]
+      features: [t('arte2D'), t('disenoPersonajes'), t('disenoUI')]
     },
     {
-      title: "Diseño de sonido",
-      description: "Ambientes inmersivos y banda sonora original que complementan la experiencia.",
+      title: t('sonidoTitle'),
+      description: t('sonidoText'),
       icon: "🎵",
-      features: ["Efectos de Sonido", "Composición Musical", "Implementación de Audio"]
+      features: [t('efectosSonido'), t('composicionMusical'), t('implementacionAudio')]
     }
   ];
 
@@ -24,10 +28,10 @@ const Services = () => {
     <section id="services" className="py-20 px-4 bg-black">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
-          Nuestros Servicios
+          {t('serviciosTitle')}
         </h2>
         <p className="text-xl text-gray-400 mb-16 max-w-2xl mx-auto">
-          Ofrecemos soluciones completas para dar vida a tus ideas de videojuegos
+          {t('serviciosSubtitle')}
         </p>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -65,7 +69,7 @@ const Services = () => {
         
         <div className="mt-16">
           <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-            Solicitar Cotización
+            {t('solicitarCotizacion')}
           </button>
         </div>
       </div>

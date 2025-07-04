@@ -1,10 +1,11 @@
 import './App.css'
-import { Nav, Footer } from './components/Index';
+import { Nav, Footer } from '/src/components/';
 import { Hero, About, Services, Projects, Contact } from './sections/'
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <LanguageProvider>
       <Nav />
       <main>
         <Hero />
@@ -14,7 +15,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </div>
+    </LanguageProvider>
   )
 }
 

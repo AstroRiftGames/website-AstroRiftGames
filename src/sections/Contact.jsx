@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -44,16 +47,16 @@ const Contact = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">¡Mensaje Enviado!</h3>
-              <p className="text-gray-400">Te responderemos pronto.</p>
+              <h3 className="text-2xl font-bold text-white mb-2">{t('mensajeEnviado')}</h3>
+              <p className="text-gray-400">{t('responderemosProto')}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Envianos un Mensaje</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('envianosMsg')}</h3>
               
               <div>
                 <label htmlFor="nombre" className="block text-sm font-medium text-gray-400 mb-2">
-                  Nombre *
+                  {t('nombre')} *
                 </label>
                 <input
                   type="text"
@@ -63,13 +66,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-                  placeholder="Tu nombre completo"
+                  placeholder={t('tuNombre')}
                 />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                  Email *
+                  {t('email')} *
                 </label>
                 <input
                   type="email"
@@ -79,13 +82,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-                  placeholder="tu@email.com"
+                  placeholder={t('@email.com')}
                 />
               </div>
               
               <div>
                 <label htmlFor="mensaje" className="block text-sm font-medium text-gray-400 mb-2">
-                  Mensaje *
+                  {t('mensaje')} *
                 </label>
                 <textarea
                   id="mensaje"
@@ -95,7 +98,7 @@ const Contact = () => {
                   required
                   rows="6"
                   className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors resize-none"
-                  placeholder="Cuéntanos sobre tu proyecto, idea de juego o cómo podemos ayudarte..."
+                  placeholder={t('mensajePlaceholder')}
                 ></textarea>
               </div>
               
@@ -110,10 +113,10 @@ const Contact = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Enviando...
+                    {t('enviando')}
                   </div>
                 ) : (
-                  'Enviar Mensaje'
+                  t('enviarMensaje')
                 )}
               </button>
             </form>

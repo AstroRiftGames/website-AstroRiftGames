@@ -1,4 +1,8 @@
+import { useLanguage } from '../context/LanguageContext';
+
 const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToAbout = () => {
     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
   };
@@ -28,25 +32,37 @@ const Hero = () => {
 
       <div className="relative z-10">
         <h1 className="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-md bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          Astro Rift Games
+          {t('heroTitle')}
         </h1>
         <p className="text-lg md:text-2xl mb-8 max-w-2xl opacity-90 leading-relaxed">
-          Creamos experiencias interactivas, memorables y únicas para jugadores de todo el mundo.
+          {t('heroSubtitle')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
             onClick={scrollToAbout}
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
-            Conocé más
+            {t('conoceMas')}
           </button>
           <button 
             onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
             className="border-2 border-indigo-600 text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
           >
-            Ver Juegos
+            {t('verJuegos')}
           </button>
         </div>
+      </div>
+
+      {/* Flecha animada para desplazamiento - centrada y abajo */}
+      <div className="absolute bottom-8 w-full flex justify-center">
+        <button 
+          onClick={scrollToAbout}
+          className="animate-bounce hover:text-indigo-400 transition-colors duration-300 cursor-pointer bg-transparent border-none p-2"
+        >
+          <svg className="w-6 h-6 text-white opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
       </div>
     </section>
   )

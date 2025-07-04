@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from '../context/LanguageContext';
 
 function Nav() {
+  const { language, toggleLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,11 +24,11 @@ function Nav() {
   }, []);
 
   const menuItems = [
-    { href: "#hero", label: "Inicio" },
-    { href: "#about", label: "Quiénes Somos" },
-    { href: "#services", label: "Servicios" },
-    { href: "#projects", label: "Proyectos" },
-    { href: "#contact", label: "Contacto" }
+    { href: "#hero", label: t('inicio') },
+    { href: "#about", label: t('quienesSomos') },
+    { href: "#services", label: t('servicios') },
+    { href: "#projects", label: t('proyectos') },
+    { href: "#contact", label: t('contacto') }
   ];
 
   const handleMenuClick = (href) => {
@@ -79,15 +81,24 @@ function Nav() {
               </a>
             </div>
 
-            {/* Botón CTA derecha */}
-            <div className="flex items-center justify-end flex-1">
+            {/* Botón CTA derecha + Botón de idioma */}
+            <div className="flex items-center justify-end flex-1 space-x-3">
+              {/* Botón de cambio de idioma */}
+              <button
+                onClick={toggleLanguage}
+                className="hidden md:flex items-center justify-center w-30 h-10 rounded-full border-2 border-indigo-500/50 text-indigo-400 hover:border-indigo-400 hover:text-white hover:bg-indigo-500/20 transition-all duration-300 text-sm font-bold"
+                title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+              >
+                {language === 'es' ? 'ENGLISH' : 'ESPAÑOL'}
+              </button>
+              
               <a
                 href="https://astroriftgames.itch.io/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/25"
               >
-                🎮 Jugar
+                🎮 {language === 'es' ? 'Jugar' : 'Play'}
               </a>
             </div>
           </div>
@@ -116,13 +127,23 @@ function Nav() {
               alt="Logo" 
               className="h-10 object-contain" 
             />
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-red-400 text-xl transition-colors p-2"
-              aria-label="Cerrar menú"
-            >
-              ✕
-            </button>
+            <div className="flex items-center space-x-3">
+              {/* Botón de idioma móvil */}
+              <button
+                onClick={toggleLanguage}
+                className="px-3 py-1 rounded-md border border-indigo-500/50 text-indigo-400 hover:border-indigo-400 hover:bg-indigo-500/20 transition-all duration-300 text-sm font-medium"
+              >
+                {language === 'es' ? 'English' : 'Español'}
+              </button>
+              
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-red-400 text-xl transition-colors p-2"
+                aria-label="Cerrar menú"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           {/* Opciones del menú */}
@@ -148,14 +169,16 @@ function Nav() {
                 onClick={() => setIsOpen(false)}
                 className="block w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300"
               >
-                🎮 Nuestros Juegos
+                🎮 {language === 'es' ? 'Nuestros Juegos' : 'Our Games'}
               </a>
             </div>
           </div>
 
           {/* Footer del menú con redes sociales */}
           <div className="p-6 border-t border-gray-700/50">
-            <p className="text-gray-400 text-sm mb-4 text-center">Síguenos en:</p>
+            <p className="text-gray-400 text-sm mb-4 text-center">
+              {language === 'es' ? 'Síguenos en:' : 'Follow us on:'}
+            </p>
             <div className="flex justify-center space-x-4">
               <a href="https://www.instagram.com/astroriftgames/" target="_blank" rel="noopener noreferrer" 
                  className="w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center transition-colors">
