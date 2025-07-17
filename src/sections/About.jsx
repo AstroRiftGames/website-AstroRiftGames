@@ -7,28 +7,31 @@ const About = () => {
           <div className="md:flex items-center gap-12 text-white">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <div className="relative">
-                <img 
-                  src="src\assets\LOGO-completo.png" 
-                  alt="Logo de Astro Rift Games" 
-                  className="w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300" 
+                <img
+                  src="/images/LOGO-completo.png"
+                  alt="Logo de Astro Rift Games"
+                  className="w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
-            
+
             <div className="md:w-1/2">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
                 Quiénes Somos
               </h2>
-              <p className="text-lg leading-relaxed text-gray-300 mb-6">
-                <span className="text-indigo-400 font-semibold">Astro Rift Games</span> es una empresa de desarrolladores de videojuegos independientes que crean experiencias únicas a partir de la pasión y la creatividad.
+              <p className="text-lg leading-relaxed text-gray-300 mb-8">
+                <span className="text-indigo-400 font-semibold">Somos Astro Rift Games</span> un equipo de desarrolladores independientes que crea videojuegos con pasión y creatividad.
               </p>
               <p className="text-lg leading-relaxed text-gray-300 mb-8">
-                Nuestro objetivo es construir mundos memorables y jugar con la imaginación, llevando a los jugadores a través de aventuras que permanecerán en sus corazones para siempre.
+                Nos encanta imaginar, construir y compartir mundos únicos. </p>
+
+              <p className="text-lg leading-relaxed text-gray-300 mb-8">
+                Nuestro objetivo es diseñar experiencias memorables que nos gustaría jugar, y que inviten a otros a vivir aventuras que dejen huella.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div className="bg-gray-700/50 rounded-lg p-4 border border-gray-600">
-                  <div className="text-2xl font-bold text-indigo-400">2+</div>
+                  <div className="text-2xl font-bold text-indigo-400">2</div>
                   <div className="text-sm text-gray-400">Juegos Publicados</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-lg p-4 border border-gray-600">
@@ -43,5 +46,5 @@ const About = () => {
     </section>
   );
 }
-  
+
 export default About
