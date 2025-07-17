@@ -27,10 +27,10 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10">
-        {/* Imagen reemplazando el h1 */}
+        {/* Imagen reemplazando el h1 - RUTA CORREGIDA */}
         <div className="mb-6">
           <img 
-            src="/src/assets/BANNER-!.png" 
+            src="/images/BANNER.png" 
             alt="Astro Rift Games"
             className="w-full max-w-4xl mx-auto h-auto drop-shadow-lg transform hover:scale-105 transition-transform duration-300"
           />
