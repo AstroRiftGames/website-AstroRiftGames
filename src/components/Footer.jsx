@@ -22,12 +22,11 @@ const Footer = () => {
         <div className="mb-12">
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 animate-bounce"
+            className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 animate-bounce !text-white"
             aria-label="Volver arriba"
+            style={{color: 'white !important'}}
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="white" viewBox="0 0 24 24" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
+            ↑
           </button>
         </div>
 

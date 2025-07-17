@@ -27,10 +27,16 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-md bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          Astro Rift Games
-        </h1>
-        <p className="text-lg md:text-2xl mb-8 max-w-2xl opacity-90 leading-relaxed">
+        {/* Imagen reemplazando el h1 */}
+        <div className="mb-6">
+          <img 
+            src="/src/assets/BANNER-!.png" 
+            alt="Astro Rift Games"
+            className="w-full max-w-4xl mx-auto h-auto drop-shadow-lg transform hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        
+        <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed text-center">
           Creamos experiencias interactivas, memorables y únicas para jugadores de todo el mundo.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

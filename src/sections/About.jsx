@@ -8,7 +8,7 @@ const About = () => {
             <div className="md:w-1/2 mb-8 md:mb-0">
               <div className="relative">
                 <img 
-                  src="/images/arglogonamedown.png" 
+                  src="src\assets\LOGO-completo.png" 
                   alt="Logo de Astro Rift Games" 
                   className="w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300" 
                 />

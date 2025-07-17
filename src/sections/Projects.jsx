@@ -83,7 +83,7 @@ const Projects = () => {
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
                   >
                     Jugar Ahora
                   </a>
@@ -97,7 +97,7 @@ const Projects = () => {
           <p className="text-gray-400 mb-6">¿Tenés una idea para un juego?</p>
           <button 
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 !text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
           >
             Trabajemos Juntos
           </button>
