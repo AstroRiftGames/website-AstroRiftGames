@@ -5,46 +5,409 @@ html {
   scroll-padding-top: 80px;
 }
 
+/* FONDO DEGRADADO GLOBAL - UNA SOLA DEFINICIÓN */
 body {
   font-family: 'Orbitron', sans-serif;
-  background-color: #000000;
   margin: 0;
   overflow-x: hidden;
+  background: linear-gradient(
+    180deg,  /* Vertical para que oscurezca hacia abajo */
+    #000000 0%,      /* Negro profundo arriba */
+    #1a1a2e 20%,     /* Azul muy oscuro */
+    #16213e 40%,     /* Azul espacial en el medio */
+    #0f0f23 60%,     /* Púrpura muy oscuro */
+    #0a0a1a 80%,     /* Casi negro */
+    #000000 100%     /* Negro total al final (footer) */
+  );
+  background-attachment: fixed; /* El degradado se mantiene fijo al hacer scroll */
+  min-height: 100vh;
 }
 
-/* Efectos de fondo para el hero */
+/* CONTENEDOR PRINCIPAL - COMPLETAMENTE TRANSPARENTE */
+.bg-black {
+  background: transparent !important; /* Sin capas adicionales */
+}
+
+/* HERO - COMPLETAMENTE TRANSPARENTE */
 .bg-hero-pattern {
-  background-image: 
-    radial-gradient(circle at 25% 25%, #4f46e5 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, #7c3aed 0%, transparent 50%),
-    radial-gradient(#4f46e5 0.5px, transparent 1px);
-  background-size: 
-    400px 400px,
-    600px 600px,
-    12px 12px;
-  background-position:
-    0% 0%,
-    100% 100%,
-    0% 0%;
-  animation: backgroundFloat 20s ease-in-out infinite;
+  background: transparent !important; /* Completamente transparente para mostrar el degradado del body */
 }
 
-@keyframes backgroundFloat {
-  0%, 100% {
-    background-position:
-      0% 0%,
-      100% 100%,
-      0% 0%;
+/* TODAS LAS SECCIONES - COMPLETAMENTE TRANSPARENTES */
+section {
+  position: relative;
+  background: transparent !important; /* Completamente transparente */
+}
+
+/* FOOTER - COMPLETAMENTE TRANSPARENTE */
+footer {
+  background: transparent !important; /* Sin fondo propio */
+  position: relative;
+  z-index: 20;
+}
+
+/* NAVBAR - SIEMPRE VISIBLE */
+nav {
+  z-index: 9999 !important; /* Z-index muy alto para estar siempre arriba */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* PARTÍCULAS GLOBALES */
+.global-particles {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Z-INDEX HIERARCHY - MEJORADO */
+main {
+  position: relative;
+  z-index: 10;
+  padding-top: 80px; /* Espacio para el navbar fijo */
+}
+
+footer {
+  position: relative;
+  z-index: 20;
+}
+
+/* REMOVER OUTLINE Y FOCUS VISUAL DE TODOS LOS BOTONES */
+button, 
+button:focus, 
+button:active,
+button:focus-visible,
+a:focus,
+a:active,
+a:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* FOCUS VISIBLE SOLO PARA ACCESIBILIDAD CON TECLADO */
+button:focus-visible {
+  outline: 2px solid rgba(79, 70, 229, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* ========================
+   QUANTUM EFFECT NAV STYLES - CORREGIDO
+   ======================== */
+
+/* Botones principales del nav desktop - DIMENSIONES FIJAS */
+.quantum-nav-btn {
+  background: rgba(0, 0, 0, 0.6) !important; /* FONDO OSCURO EN REPOSO */
+  border: 1px solid rgba(79, 70, 229, 0.4) !important; /* BORDE SUTIL */
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 120px !important; /* ANCHO MÁS ESTRECHO */
+  height: 44px !important; /* ALTURA FIJA PARA TODOS */
+  text-align: center !important;
+  padding: 0 8px !important; /* PADDING MÍNIMO PARA RESPIRACIÓN */
+  white-space: nowrap; /* EVITA SALTO DE LÍNEA */
+  font-size: 0.875rem !important; /* TAMAÑO DE FUENTE UNIFORME */
+  overflow: hidden; /* OCULTA DESBORDAMIENTO */
+  text-overflow: ellipsis; /* PUNTOS SUSPENSIVOS SI ES NECESARIO */
+  /* SIN ANIMACIÓN EN REPOSO */
+  
+  /* QUITAR FOCUS OUTLINE */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.quantum-nav-btn span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quantum-nav-btn::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(
+    from 0deg,
+    #7c3aed,
+    #a855f7,
+    #c084fc,
+    #e879f9,
+    #7c3aed
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: none; /* SIN ANIMACIÓN POR DEFECTO */
+  opacity: 0; /* OCULTO POR DEFECTO */
+  transition: none; /* SIN TRANSICIÓN */
+}
+
+.quantum-nav-btn:hover {
+  /* AL HOVER: VIOLETA MÁS INTENSO */
+  background: linear-gradient(45deg, #7c3aed, #a855f7, #c084fc) !important;
+  background-size: 200% 200%;
+  border: 2px solid transparent !important;
+  animation: ctaQuantumGlow 2s ease-in-out infinite;
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.8) !important;
+}
+
+.quantum-nav-btn:hover::before {
+  opacity: 1 !important; /* BORDE QUANTUM VISIBLE AL HOVER */
+  animation: quantumBorder 1s linear infinite; /* ANIMACIÓN SOLO AL HOVER */
+}
+
+/* Botón CTA principal con efecto especial - REDUCIR INTENSIDAD */
+.cta-quantum-btn {
+  background: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899) !important;
+  background-size: 200% 200%;
+  border: 2px solid transparent !important;
+  position: relative;
+  animation: ctaQuantumGlow 2s ease-in-out infinite;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  
+  /* QUITAR FOCUS OUTLINE */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.cta-quantum-btn::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(
+    from 0deg,
+    #4f46e5,
+    #7c3aed,
+    #ec4899,
+    #06b6d4,
+    #10b981,
+    #4f46e5
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: quantumBorder 2s linear infinite;
+  opacity: 0.3; /* MENOS INTENSO QUE ANTES PARA IGUALAR */
+}
+
+.cta-quantum-btn:hover::before {
+  opacity: 1 !important;
+  animation-duration: 1s;
+}
+
+.cta-quantum-btn:hover {
+  transform: scale(1.05);
+  animation-duration: 1s;
+  box-shadow: 0 0 35px rgba(236, 72, 153, 0.8) !important;
+}
+
+/* Botones del menú móvil */
+.quantum-mobile-btn {
+  background: rgba(17, 24, 39, 0.9) !important;
+  border: 1px solid rgba(79, 70, 229, 0.5) !important;
+  border-left: 3px solid transparent !important;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  text-align: left !important;
+  
+  /* QUITAR FOCUS OUTLINE */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.quantum-mobile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #7c3aed,
+    #a855f7,
+    #c084fc,
+    #e879f9,
+    #7c3aed
+  );
+  background-size: 100% 200%;
+  animation: quantumMobileBorder 2s ease-in-out infinite;
+  opacity: 0; /* OCULTO POR DEFECTO */
+  transition: opacity 0.3s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.quantum-mobile-btn:hover::before {
+  opacity: 1 !important; /* SE VE AL HOVER */
+}
+
+.quantum-mobile-btn:hover {
+  background: rgba(124, 58, 237, 0.3) !important;
+  border-color: #7c3aed !important;
+  transform: translateX(8px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
+}
+
+/* CTA móvil */
+.cta-mobile-btn {
+  background: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899) !important;
+  background-size: 200% 200%;
+  border: 2px solid rgba(79, 70, 229, 0.8) !important;
+  animation: ctaMobileGlow 2s ease-in-out infinite;
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  
+  /* QUITAR FOCUS OUTLINE */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.cta-mobile-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(
+    from 0deg,
+    #4f46e5,
+    #7c3aed,
+    #ec4899,
+    #06b6d4,
+    #4f46e5
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: quantumBorder 3s linear infinite;
+  opacity: 0.6;
+}
+
+.cta-mobile-btn:hover::before {
+  opacity: 1 !important;
+  animation-duration: 1.5s;
+}
+
+.cta-mobile-btn:hover {
+  background-position: 100% 100%;
+  border-color: #ec4899 !important;
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.7) !important;
+  transform: scale(1.02);
+}
+
+/* Botones sociales con quantum */
+.quantum-social-btn {
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* QUITAR FOCUS OUTLINE */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.quantum-social-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.6),
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  border-radius: 50%;
+  animation: quantumSocialSpin 2s linear infinite;
+  opacity: 0; /* OCULTO POR DEFECTO */
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.quantum-social-btn:hover::before {
+  opacity: 1 !important; /* SE VE AL HOVER */
+}
+
+.quantum-social-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px currentColor !important;
+}
+
+/* ========================
+   ANIMACIONES QUANTUM
+   ======================== */
+
+@keyframes quantumSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes quantumBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ctaQuantumGlow {
+  0%, 100% { 
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
+    background-position: 0% 50%;
   }
-  50% {
-    background-position:
-      100% 100%,
-      0% 0%,
-      50% 50%;
+  50% { 
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+    background-position: 100% 50%;
   }
 }
 
-/* Animaciones adicionales */
+@keyframes quantumMobileBorder {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+@keyframes ctaMobileGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+    background-position: 0% 50%;
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.7);
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes quantumSocialSpin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ANIMACIONES ORIGINALES */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -74,7 +437,39 @@ body {
   }
 }
 
-/* Clases utilitarias */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* CLASES UTILITARIAS */
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -87,7 +482,17 @@ body {
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Efectos de hover mejorados */
+.pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.gradient-animation {
+  background: linear-gradient(-45deg, #4f46e5, #7c3aed, #ec4899, #06b6d4);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* EFECTOS DE HOVER */
 .hover-glow:hover {
   box-shadow: 
     0 0 20px rgba(79, 70, 229, 0.4),
@@ -95,7 +500,33 @@ body {
     0 0 60px rgba(79, 70, 229, 0.1);
 }
 
-/* Efectos de partículas */
+/* EFECTOS DE TEXTO */
+.text-glow {
+  text-shadow: 
+    0 0 10px rgba(79, 70, 229, 0.5),
+    0 0 20px rgba(79, 70, 229, 0.3),
+    0 0 30px rgba(79, 70, 229, 0.1);
+}
+
+/* SCROLLBAR PERSONALIZADA */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+}
+
+/* EFECTOS DE PARTÍCULAS LEGACY (por si acaso) */
 .stars {
   position: absolute;
   width: 2px;
@@ -117,82 +548,42 @@ body {
   animation: twinkle 2s infinite;
 }
 
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
+/* ========================
+   RESPONSIVE QUANTUM
+   ======================== */
 
-/* Scrollbar personalizada */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1f1f1f;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #4f46e5, #7c3aed);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #6366f1, #8b5cf6);
-}
-
-/* Efectos de texto */
-.text-glow {
-  text-shadow: 
-    0 0 10px rgba(79, 70, 229, 0.5),
-    0 0 20px rgba(79, 70, 229, 0.3),
-    0 0 30px rgba(79, 70, 229, 0.1);
-}
-
-/* Media queries para responsividad */
+/* Reducir intensidad en móvil para performance */
 @media (max-width: 768px) {
-  .bg-hero-pattern {
-    background-size: 
-      200px 200px,
-      300px 300px,
-      8px 8px;
+  .global-particles {
+    opacity: 0.7; /* Menos intenso en móvil para mejor performance */
+  }
+  
+  .quantum-nav-btn::before,
+  .cta-quantum-btn::before {
+    animation-duration: 4s; /* Más lento en móvil */
+  }
+  
+  .quantum-social-btn:hover {
+    transform: scale(1.05); /* Menos escala en móvil */
+  }
+  
+  /* Ajustar padding del main en móvil */
+  main {
+    padding-top: 64px; /* Menos espacio en móvil */
   }
 }
 
-/* Efectos de loading */
-.pulse-slow {
-  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+/* Desactivar animaciones si el usuario prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .quantum-nav-btn::before,
+  .cta-quantum-btn::before,
+  .quantum-mobile-btn::before,
+  .quantum-social-btn::before {
+    animation: none;
   }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-/* Efectos de gradiente animado */
-.gradient-animation {
-  background: linear-gradient(-45deg, #4f46e5, #7c3aed, #ec4899, #06b6d4);
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  
+  .cta-quantum-btn,
+  .cta-mobile-btn {
+    animation: none;
   }
 }

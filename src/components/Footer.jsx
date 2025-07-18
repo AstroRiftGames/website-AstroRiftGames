@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-black via-gray-900 to-black py-16">
+    <footer className="relative py-16">
       {/* Efecto de estrellas de fondo */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="stars absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '20%', left: '15%'}}></div>

@@ -18,14 +18,8 @@ const Hero = () => {
     relative
     overflow-hidden">
       
-      {/* Efecto de partículas de fondo */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="stars absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '20%', left: '10%'}}></div>
-        <div className="stars absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '40%', left: '80%', animationDelay: '1s'}}></div>
-        <div className="stars absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '60%', left: '20%', animationDelay: '2s'}}></div>
-        <div className="stars absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '80%', left: '70%', animationDelay: '3s'}}></div>
-      </div>
-
+      {/* YA NO NECESITAMOS PARTÍCULAS AQUÍ - Las globales se encargan */}
+      
       <div className="relative z-10">
         {/* Imagen reemplazando el h1 - RUTA CORREGIDA */}
         <div className="mb-6">
