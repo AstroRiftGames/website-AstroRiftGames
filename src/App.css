@@ -230,6 +230,8 @@ button:focus-visible {
   display: flex !important;
   align-items: center !important;
   text-align: left !important;
+  overflow: visible !important; /* CAMBIO: permitir que el efecto se vea */
+  margin-left: 4px !important; /* AGREGADO: espacio para el efecto del borde */
   
   /* QUITAR FOCUS OUTLINE */
   outline: none !important;
@@ -237,6 +239,62 @@ button:focus-visible {
 }
 
 .quantum-mobile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px; /* CAMBIO: posicionar correctamente el borde */
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #7c3aed,
+    #a855f7,
+    #c084fc,
+    #e879f9,
+    #7c3aed
+  );
+  background-size: 100% 200%;
+  animation: quantumMobileBorder 2s ease-in-out infinite;
+  opacity: 0; /* OCULTO POR DEFECTO */
+  transition: opacity 0.3s ease;
+  border-radius: 0 4px 4px 0;
+  z-index: 0; /* AGREGADO: z-index para que esté detrás del texto */
+}
+
+.quantum-mobile-btn:hover::before {
+  opacity: 1 !important; /* SE VE AL HOVER */
+}
+
+.quantum-mobile-btn:hover {
+  background: rgba(124, 58, 237, 0.3) !important;
+  border-color: #7c3aed !important;
+  transform: translateX(4px); /* REDUCIDO: menos desplazamiento */
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
+}
+
+.quantum-mobile-btn-internal span {
+  position: relative;
+  z-index: 2;
+  margin-left: 8px; /* Espacio para el borde interno */
+}
+
+/* OPCIÓN 3: Efecto de borde interno - CLASE COMPLETA */
+.quantum-mobile-btn-internal {
+  background: rgba(17, 24, 39, 0.9) !important;
+  border: 1px solid rgba(79, 70, 229, 0.5) !important;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  text-align: left !important;
+  overflow: hidden !important;
+  
+  /* QUITAR FOCUS OUTLINE */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.quantum-mobile-btn-internal::before {
   content: '';
   position: absolute;
   top: 0;
@@ -253,20 +311,25 @@ button:focus-visible {
   );
   background-size: 100% 200%;
   animation: quantumMobileBorder 2s ease-in-out infinite;
-  opacity: 0; /* OCULTO POR DEFECTO */
+  opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 0 4px 4px 0;
+  z-index: 1;
 }
 
-.quantum-mobile-btn:hover::before {
-  opacity: 1 !important; /* SE VE AL HOVER */
+.quantum-mobile-btn-internal:hover::before {
+  opacity: 1 !important;
 }
 
-.quantum-mobile-btn:hover {
+.quantum-mobile-btn-internal:hover {
   background: rgba(124, 58, 237, 0.3) !important;
   border-color: #7c3aed !important;
-  transform: translateX(8px);
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
+}
+
+.quantum-mobile-btn-internal span {
+  position: relative;
+  z-index: 2;
+  margin-left: 8px; /* Espacio para el borde interno */
 }
 
 /* CTA móvil */

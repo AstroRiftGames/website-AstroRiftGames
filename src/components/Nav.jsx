@@ -21,6 +21,28 @@ function Nav() {
     };
   }, []);
 
+  // Agregar efecto para cerrar el menú con ESC
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevenir scroll del body cuando el menú está abierto
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const menuItems = [
     { href: "#about", label: "Nosotros" },
     { href: "#services", label: "Servicios" },
@@ -39,6 +61,14 @@ function Nav() {
     handleMenuClick(href);
   };
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
@@ -50,12 +80,13 @@ function Nav() {
             {/* Botón hamburguesa móvil + Secciones desktop */}
             <div className="flex items-center flex-1">
               <button
-                onClick={() => setIsOpen(true)}
+                onClick={toggleMenu}
                 onBlur={(e) => e.target.blur()}
                 className="md:hidden text-2xl text-white hover:text-indigo-400 transition-colors mr-3 focus:outline-none"
-                aria-label="Abrir menú"
+                aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={isOpen}
               >
-                ☰
+                {isOpen ? '✕' : '☰'}
               </button>
 
               {/* Menú de secciones desktop con Quantum Effect */}
@@ -97,12 +128,14 @@ function Nav() {
         </div>
       </nav>
 
-      {/* Overlay del menú móvil */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-        onClick={() => setIsOpen(false)}
-      />
+      {/* Overlay del menú móvil - CORREGIDO */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden"
+          onClick={closeMenu}
+          onTouchStart={closeMenu} // Para dispositivos táctiles
+        />
+      )}
 
       {/* Menú móvil con efectos quantum */}
       <div
@@ -118,9 +151,9 @@ function Nav() {
               className="h-10 object-contain"
             />
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
               onBlur={(e) => e.target.blur()}
-              className="text-white hover:text-red-400 text-xl transition-colors p-2 focus:outline-none"
+              className="text-white hover:text-red-400 text-xl transition-colors p-2 focus:outline-none hover:bg-red-500/10 rounded-full"
               aria-label="Cerrar menú"
             >
               ✕
@@ -134,7 +167,7 @@ function Nav() {
                 <button
                   key={item.href}
                   onClick={(e) => handleButtonClick(e, item.href)}
-                  className="quantum-mobile-btn w-full text-left text-white/90 hover:text-white p-4 rounded-xl transition-all duration-300 font-medium relative overflow-hidden focus:outline-none focus:ring-0"
+                  className="quantum-mobile-btn-internal w-full text-left text-white/90 hover:text-white p-4 rounded-xl transition-all duration-300 font-medium relative focus:outline-none focus:ring-0"
                 >
                   <span className="relative z-10">{item.label}</span>
                 </button>
