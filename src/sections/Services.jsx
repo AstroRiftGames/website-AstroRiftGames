@@ -1,6 +1,12 @@
 const Services = () => {
   const services = [
     {
+      title: "Desarrollo B2B",
+      description: "Creamos videojuegos personalizados para empresas que buscan promocionar su marca de manera innovadora.",
+      icon: "🎯",
+      features: ["Juegos Mobile", "Juegos Web", "Branding Interactivo"]
+    },
+    {
       title: "Desarrollo a medida",
       description: "Creamos videojuegos desde cero, adaptados completamente a tus ideas y visión única.",
       icon: "💻",
@@ -26,15 +32,15 @@ const Services = () => {
         <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
           Nuestros Servicios
         </h2>
-        <p className="text-xl text-gray-400 mb-16 max-w-2xl mx-auto">
-          Ofrecemos soluciones completas para dar vida a tus ideas de videojuegos
+        <p className="text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
+          Ofrecemos soluciones completas para dar vida a tus ideas de videojuegos, desde proyectos independientes hasta estrategias comerciales B2B
         </p>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 hover:shadow-indigo-500/20"
+              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 hover:shadow-indigo-500/20 flex flex-col h-full min-h-[400px]"
             >
               <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
@@ -44,11 +50,11 @@ const Services = () => {
                 {service.title}
               </h3>
               
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-300 leading-relaxed mb-6 flex-1">
                 {service.description}
               </p>
               
-              <div className="space-y-2">
+              <div className="space-y-2 mt-auto">
                 {service.features.map((feature, featureIndex) => (
                   <div 
                     key={featureIndex}
@@ -63,8 +69,44 @@ const Services = () => {
           ))}
         </div>
         
+        {/* Sección de caso de éxito */}
+        <div className="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
+          <h3 className="text-3xl font-bold mb-6 text-white">
+            Caso de Éxito: Müecas Game
+          </h3>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-left">
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Desarrollamos un juego promocional que logró aumentar significativamente el engagement de la marca, 
+                creando una conexión emocional única entre el producto y los consumidores.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+                  +500% Engagement
+                </span>
+                <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">
+                  Alcance Viral
+                </span>
+                <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">
+                  ROI Positivo
+                </span>
+              </div>
+            </div>
+            <div className="text-center">
+              <img 
+                src="/images/MuecasGameLogo.jpg" 
+                alt="Müecas Game"
+                className="w-48 h-48 object-cover rounded-xl mx-auto shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+        
         <div className="mt-16">
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+          <button 
+            onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
             Solicitar Cotización
           </button>
         </div>

@@ -1,7 +1,7 @@
 import './App.css'
 import { Nav, Footer } from './components/Index';
 import { Hero, About, Services, Projects, Contact } from './sections/'
-import { FloatingParticles } from './components/Index'; // ← AGREGAR IMPORT
+import { FloatingParticles } from './components/Index';
 
 function App() {
   return (
