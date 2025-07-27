@@ -92,16 +92,6 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        
-        <div className="text-center mt-16">
-          <p className="text-gray-400 mb-6">¿Tenés una idea para un juego?</p>
-          <button 
-            onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 !text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
-          >
-            Trabajemos Juntos
-          </button>
-        </div>
       </div>
     </section>
   )
