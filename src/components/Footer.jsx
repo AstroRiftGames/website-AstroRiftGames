@@ -1,6 +1,9 @@
+// src/components/Footer.jsx
 import React from 'react'
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -23,7 +26,7 @@ const Footer = () => {
           <button
             onClick={scrollToTop}
             className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 animate-bounce !text-white"
-            aria-label="Volver arriba"
+            aria-label={t('footer.backToTop')}
             style={{color: 'white !important'}}
           >
             ↑
@@ -72,7 +75,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="text-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} Astro Rift Games. Todos los derechos reservados.
+            © {currentYear} Astro Rift Games. {t('footer.copyright')}
           </p>
         </div>
       </div>

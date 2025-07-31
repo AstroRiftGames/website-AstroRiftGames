@@ -1,4 +1,9 @@
+// src/sections/About.jsx
+import { useLanguage } from '../contexts/LanguageContext';
+
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-20 px-4 bg-gray-900">
       <div className="max-w-6xl mx-auto">
@@ -17,26 +22,27 @@ const About = () => {
 
             <div className="md:w-1/2">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
-                Quiénes Somos
+                {t('about.title')}
               </h2>
               <p className="text-lg leading-relaxed text-gray-300 mb-8">
-                <span className="text-indigo-400 font-semibold">Somos Astro Rift Games</span> un equipo de desarrolladores independientes que crea videojuegos con pasión y creatividad.
+                <span className="text-indigo-400 font-semibold">{t('common.astroRiftGames')}</span> {t('about.description1')}
               </p>
               <p className="text-lg leading-relaxed text-gray-300 mb-8">
-                Nos encanta imaginar, construir y compartir mundos únicos. </p>
+                {t('about.description2')}
+              </p>
 
               <p className="text-lg leading-relaxed text-gray-300 mb-8">
-                Nuestro objetivo es diseñar experiencias memorables que nos gustaría jugar, y que inviten a otros a vivir aventuras que dejen huella.
+                {t('about.description3')}
               </p>
 
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div className="bg-gray-700/50 rounded-lg p-4 border border-gray-600">
                   <div className="text-2xl font-bold text-indigo-400">2</div>
-                  <div className="text-sm text-gray-400">Juegos Publicados</div>
+                  <div className="text-sm text-gray-400">{t('about.stats.games')}</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-lg p-4 border border-gray-600">
                   <div className="text-2xl font-bold text-indigo-400">100%</div>
-                  <div className="text-sm text-gray-400">Pasión</div>
+                  <div className="text-sm text-gray-400">{t('about.stats.passion')}</div>
                 </div>
               </div>
             </div>

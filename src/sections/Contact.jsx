@@ -1,7 +1,11 @@
+// src/sections/Contact.jsx
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -247,10 +251,10 @@ const Contact = () => {
         {/* Header principal de la sección */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
-            Contacto
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            ¿Tenés alguna consulta, propuesta o querés trabajar con nosotros? ¡Escribinos!
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -264,9 +268,9 @@ const Contact = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">¡Mensaje Enviado! 🚀</h3>
-                <p className="text-gray-400 mb-2">Te responderemos pronto a tu casilla de email.</p>
-                <p className="text-sm text-indigo-400">También enviamos una confirmación a tu email con los detalles.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('contact.success.title')}</h3>
+                <p className="text-gray-400 mb-2">{t('contact.success.description')}</p>
+                <p className="text-sm text-indigo-400">{t('contact.success.confirmation')}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -284,7 +288,7 @@ const Contact = () => {
                 
                 <div>
                   <label htmlFor="nombre" className="block text-sm font-medium text-gray-400 mb-2">
-                    Nombre *
+                    {t('contact.form.name')} {t('contact.form.required')}
                   </label>
                   <input
                     type="text"
@@ -294,13 +298,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200"
-                    placeholder="Tu nombre completo"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                    Email *
+                    {t('contact.form.email')} {t('contact.form.required')}
                   </label>
                   <input
                     type="email"
@@ -310,13 +314,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200"
-                    placeholder="tu@email.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="mensaje" className="block text-sm font-medium text-gray-400 mb-2">
-                    Mensaje *
+                    {t('contact.form.message')} {t('contact.form.required')}
                   </label>
                   <textarea
                     id="mensaje"
@@ -326,14 +330,14 @@ const Contact = () => {
                     required
                     rows="6"
                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200 resize-none"
-                    placeholder="Contanos tu consulta, propuesta, proyecto o cualquier cosa que quieras comentarnos..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                   ></textarea>
                 </div>
 
                 {/* Zona de Drag and Drop - Destacada */}
                 <div className="bg-gray-800/70 rounded-xl p-6 border border-gray-600">
                   <label className="block text-sm font-medium text-gray-400 mb-4 text-center">
-                    📎 Archivos Adjuntos (Opcional)
+                    {t('contact.form.attachments')}
                   </label>
                   
                   <div
@@ -352,9 +356,9 @@ const Contact = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                       </svg>
                       <p className="text-gray-300 text-lg mb-3">
-                        Arrastrá tus archivos aquí o{' '}
+                        {t('contact.form.dragDrop')}{' '}
                         <label className="text-indigo-400 cursor-pointer hover:text-indigo-300 underline underline-offset-2">
-                          hacé clic para seleccionar
+                          {t('contact.form.clickSelect')}
                           <input
                             type="file"
                             multiple
@@ -365,7 +369,7 @@ const Contact = () => {
                         </label>
                       </p>
                       <p className="text-sm text-gray-500">
-                        PDFs, documentos, imágenes, referencias • Máximo {maxFiles} archivos • 10MB cada uno
+                        {t('contact.form.fileInfo')}
                       </p>
                     </div>
                   </div>
@@ -373,7 +377,7 @@ const Contact = () => {
                   {/* Lista de archivos seleccionados */}
                   {files.length > 0 && (
                     <div className="mt-6 space-y-3">
-                      <h4 className="text-sm font-medium text-gray-400">Archivos seleccionados ({files.length}/{maxFiles}):</h4>
+                      <h4 className="text-sm font-medium text-gray-400">{t('contact.form.selectedFiles')} ({files.length}/{maxFiles}):</h4>
                       <div className="grid gap-3 md:grid-cols-2">
                         {files.map((file, index) => (
                           <div key={index} className="flex items-center justify-between bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:border-gray-600 transition-colors">
@@ -392,7 +396,7 @@ const Contact = () => {
                               type="button"
                               onClick={() => removeFile(index)}
                               className="text-red-400 hover:text-red-300 transition-colors p-1 hover:bg-red-500/10 rounded flex-shrink-0 ml-2"
-                              title="Remover archivo"
+                              title={t('contact.form.removeFile')}
                             >
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -416,11 +420,11 @@ const Contact = () => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Enviando mensaje...
+                      {t('contact.form.sending')}
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
-                      <span>Enviar Mensaje</span>
+                      <span>{t('contact.form.sendMessage')}</span>
                       <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>

@@ -1,8 +1,12 @@
+// src/components/Nav.jsx
 import { useState, useEffect } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   // Detectar scroll para cambiar el estilo del navbar
   useEffect(() => {
@@ -22,10 +26,10 @@ function Nav() {
   }, []);
 
   const menuItems = [
-    { href: "#about", label: "Nosotros" },
-    { href: "#services", label: "Servicios" },
-    { href: "#projects", label: "Proyectos" },
-    { href: "#contact", label: "Contacto" }
+    { href: "#about", label: t('nav.about') },
+    { href: "#services", label: t('nav.services') },
+    { href: "#projects", label: t('nav.projects') },
+    { href: "#contact", label: t('nav.contact') }
   ];
 
   const handleMenuClick = (href) => {
@@ -74,13 +78,13 @@ function Nav() {
 
             {/* Logo centrado */}
             <div className="flex-1 flex justify-center">
-              <a 
-                href="#hero" 
+              <a
+                href="#hero"
                 onClick={(e) => {
                   e.preventDefault();
                   e.target.blur();
                   handleMenuClick('#hero');
-                }} 
+                }}
                 className="flex items-center focus:outline-none"
               >
                 <img
@@ -91,8 +95,10 @@ function Nav() {
               </a>
             </div>
 
-            {/* Espacio vacío para mantener centrado el logo */}
-            <div className="flex-1"></div>
+            {/* Botón de idioma y espacio para mantener centrado el logo */}
+            <div className="flex-1 flex justify-end">
+              <LanguageToggle />
+            </div>
           </div>
         </div>
       </nav>
@@ -144,7 +150,7 @@ function Nav() {
 
           {/* Footer del menú con redes sociales */}
           <div className="p-6 border-t border-gray-700/50">
-            <p className="text-gray-400 text-sm mb-4 text-center">Síguenos en:</p>
+            <p className="text-gray-400 text-sm mb-4 text-center">{t('nav.followUs')}</p>
             <div className="flex justify-center space-x-4">
               <a href="https://www.instagram.com/astroriftgames/" target="_blank" rel="noopener noreferrer"
                 className="quantum-social-btn w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden focus:outline-none">

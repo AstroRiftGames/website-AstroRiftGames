@@ -1,28 +1,33 @@
+// src/sections/Services.jsx
+import { useLanguage } from '../contexts/LanguageContext';
+
 const Services = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
-      title: "Desarrollo B2B",
-      description: "Creamos videojuegos personalizados para empresas que buscan promocionar su marca de manera innovadora.",
+      title: t('services.items.b2b.title'),
+      description: t('services.items.b2b.description'),
       icon: "🎯",
-      features: ["Juegos Mobile", "Juegos Web", "Branding Interactivo"]
+      features: t('services.items.b2b.features')
     },
     {
-      title: "Desarrollo a medida",
-      description: "Creamos videojuegos desde cero, adaptados completamente a tus ideas y visión única.",
+      title: t('services.items.custom.title'),
+      description: t('services.items.custom.description'),
       icon: "💻",
-      features: ["Motor Unity", "Programación C#", "Multiplataforma"]
+      features: t('services.items.custom.features')
     },
     {
-      title: "Arte y animación",
-      description: "Diseño visual único y animaciones fluidas que dan vida a cada proyecto.",
+      title: t('services.items.art.title'),
+      description: t('services.items.art.description'),
       icon: "🎨",
-      features: ["Arte 2D", "Diseño de Personajes", "Diseño UI/UX"]
+      features: t('services.items.art.features')
     },
     {
-      title: "Diseño de sonido",
-      description: "Ambientes inmersivos y banda sonora original que complementan la experiencia.",
+      title: t('services.items.sound.title'),
+      description: t('services.items.sound.description'),
       icon: "🎵",
-      features: ["Efectos de Sonido", "Composición Musical", "Implementación de Audio"]
+      features: t('services.items.sound.features')
     }
   ];
 
@@ -30,10 +35,10 @@ const Services = () => {
     <section id="services" className="py-20 px-4 bg-black">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
-          Nuestros Servicios
+          {t('services.title')}
         </h2>
         <p className="text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
-          Ofrecemos soluciones completas para dar vida a tus ideas de videojuegos, desde proyectos independientes hasta estrategias comerciales B2B
+          {t('services.subtitle')}
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -72,23 +77,22 @@ const Services = () => {
         {/* Sección de caso de éxito */}
         <div className="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
           <h3 className="text-3xl font-bold mb-6 text-white">
-            Caso de Éxito: Müecas Game
+            {t('services.caseStudy.title')}
           </h3>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-left">
               <p className="text-gray-300 leading-relaxed mb-4">
-                Desarrollamos un juego promocional que logró aumentar significativamente el engagement de la marca, 
-                creando una conexión emocional única entre el producto y los consumidores.
+                {t('services.caseStudy.description')}
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
-                  +500% Engagement
+                  {t('services.caseStudy.metrics.engagement')}
                 </span>
                 <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">
-                  Alcance Viral
+                  {t('services.caseStudy.metrics.reach')}
                 </span>
                 <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">
-                  ROI Positivo
+                  {t('services.caseStudy.metrics.roi')}
                 </span>
               </div>
             </div>
@@ -107,7 +111,7 @@ const Services = () => {
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Solicitar Cotización
+            {t('services.cta')}
           </button>
         </div>
       </div>
