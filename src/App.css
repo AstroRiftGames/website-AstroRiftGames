@@ -23,32 +23,26 @@ body {
   min-height: 100vh;
 }
 
-/* CONTENEDOR PRINCIPAL - COMPLETAMENTE TRANSPARENTE */
-.bg-black {
-  background: transparent !important; /* Sin capas adicionales */
-}
-
-/* HERO - COMPLETAMENTE TRANSPARENTE */
-.bg-hero-pattern {
-  background: transparent !important; /* Completamente transparente para mostrar el degradado del body */
-}
-
-/* TODAS LAS SECCIONES - COMPLETAMENTE TRANSPARENTES */
-section {
-  position: relative;
-  background: transparent !important; /* Completamente transparente */
-}
-
-/* FOOTER - COMPLETAMENTE TRANSPARENTE */
+/* CONTENEDORES Y SECCIONES - COMPLETAMENTE TRANSPARENTES */
+.bg-black,
+.bg-hero-pattern,
+section,
 footer {
-  background: transparent !important; /* Sin fondo propio */
+  background: transparent !important;
+}
+
+section,
+footer {
   position: relative;
+}
+
+footer {
   z-index: 20;
 }
 
 /* NAVBAR - SIEMPRE VISIBLE */
 nav {
-  z-index: 9999 !important; /* Z-index muy alto para estar siempre arriba */
+  z-index: 9999 !important;
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -66,16 +60,11 @@ nav {
   pointer-events: none;
 }
 
-/* Z-INDEX HIERARCHY - MEJORADO */
+/* Z-INDEX HIERARCHY */
 main {
   position: relative;
   z-index: 10;
   padding-top: 80px; /* Espacio para el navbar fijo */
-}
-
-footer {
-  position: relative;
-  z-index: 20;
 }
 
 /* REMOVER OUTLINE Y FOCUS VISUAL DE TODOS LOS BOTONES */
@@ -99,29 +88,26 @@ button:focus-visible {
 }
 
 /* ========================
-   QUANTUM EFFECT NAV STYLES - CORREGIDO
+   QUANTUM EFFECT NAV STYLES
    ======================== */
 
-/* Botones principales del nav desktop - DIMENSIONES FIJAS */
+/* Botones principales del nav desktop */
 .quantum-nav-btn {
-  background: rgba(0, 0, 0, 0.6) !important; /* FONDO OSCURO EN REPOSO */
-  border: 1px solid rgba(79, 70, 229, 0.4) !important; /* BORDE SUTIL */
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(79, 70, 229, 0.4) !important;
   position: relative;
   transition: all 0.3s ease;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 120px !important; /* ANCHO MÁS ESTRECHO */
-  height: 44px !important; /* ALTURA FIJA PARA TODOS */
+  width: 120px !important;
+  height: 44px !important;
   text-align: center !important;
-  padding: 0 8px !important; /* PADDING MÍNIMO PARA RESPIRACIÓN */
-  white-space: nowrap; /* EVITA SALTO DE LÍNEA */
-  font-size: 0.875rem !important; /* TAMAÑO DE FUENTE UNIFORME */
-  overflow: hidden; /* OCULTA DESBORDAMIENTO */
-  text-overflow: ellipsis; /* PUNTOS SUSPENSIVOS SI ES NECESARIO */
-  /* SIN ANIMACIÓN EN REPOSO */
-  
-  /* QUITAR FOCUS OUTLINE */
+  padding: 0 8px !important;
+  white-space: nowrap;
+  font-size: 0.875rem !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -152,27 +138,59 @@ button:focus-visible {
   );
   border-radius: inherit;
   z-index: -1;
-  animation: none; /* SIN ANIMACIÓN POR DEFECTO */
-  opacity: 0; /* OCULTO POR DEFECTO */
-  transition: none; /* SIN TRANSICIÓN */
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.quantum-nav-btn:hover {
-  /* AL HOVER: VIOLETA MÁS INTENSO */
+/* Estados interactivos del botón nav */
+.quantum-nav-btn:hover,
+.quantum-nav-btn:active,
+.quantum-nav-btn:focus-visible {
   background: linear-gradient(45deg, #7c3aed, #a855f7, #c084fc) !important;
   background-size: 200% 200%;
   border: 2px solid transparent !important;
   animation: ctaQuantumGlow 2s ease-in-out infinite;
-  transform: scale(1.05);
   box-shadow: 0 0 35px rgba(168, 85, 247, 0.8) !important;
 }
 
-.quantum-nav-btn:hover::before {
-  opacity: 1 !important; /* BORDE QUANTUM VISIBLE AL HOVER */
-  animation: quantumBorder 1s linear infinite; /* ANIMACIÓN SOLO AL HOVER */
+.quantum-nav-btn:hover,
+.quantum-nav-btn:focus-visible {
+  transform: scale(1.05);
 }
 
-/* Ajustes específicos para las banderas dentro del botón quantum */
+.quantum-nav-btn:active {
+  transform: scale(1.02);
+}
+
+.quantum-nav-btn:focus-visible {
+  border: 2px solid #a855f7 !important;
+  outline: 2px solid rgba(168, 85, 247, 0.8) !important;
+  outline-offset: 2px !important;
+}
+
+.quantum-nav-btn:hover::before,
+.quantum-nav-btn:active::before,
+.quantum-nav-btn:focus-visible::before {
+  opacity: 1 !important;
+  animation: quantumBorder 1s linear infinite;
+}
+
+/* Reset al estado base */
+.quantum-nav-btn:not(:hover):not(:active):not(:focus-visible) {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(79, 70, 229, 0.4) !important;
+  transform: scale(1) !important;
+  animation: none !important;
+  box-shadow: none !important;
+}
+
+.quantum-nav-btn:not(:hover):not(:active):not(:focus-visible)::before {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* Ajustes para banderas en el botón de idioma */
 .quantum-nav-btn .w-5.h-4 {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -180,221 +198,79 @@ button:focus-visible {
   transition: transform 0.3s ease;
 }
 
-/* Efecto sutil en las banderas al hacer hover en el botón */
 .quantum-nav-btn:hover .w-5.h-4 {
   transform: scale(1.05);
 }
 
-/* Botón CTA principal con efecto especial - REDUCIR INTENSIDAD */
-.cta-quantum-btn {
-  background: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899) !important;
-  background-size: 200% 200%;
-  border: 2px solid transparent !important;
-  position: relative;
-  animation: ctaQuantumGlow 2s ease-in-out infinite;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  
-  /* QUITAR FOCUS OUTLINE */
-  outline: none !important;
-  box-shadow: none !important;
-}
+/* ========================
+   BOTONES MÓVILES - SIN EFECTO DE BORDE IZQUIERDO
+   ======================== */
 
-.cta-quantum-btn::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: conic-gradient(
-    from 0deg,
-    #4f46e5,
-    #7c3aed,
-    #ec4899,
-    #06b6d4,
-    #10b981,
-    #4f46e5
-  );
-  border-radius: inherit;
-  z-index: -1;
-  animation: quantumBorder 2s linear infinite;
-  opacity: 0.3; /* MENOS INTENSO QUE ANTES PARA IGUALAR */
-}
-
-.cta-quantum-btn:hover::before {
-  opacity: 1 !important;
-  animation-duration: 1s;
-}
-
-.cta-quantum-btn:hover {
-  transform: scale(1.05);
-  animation-duration: 1s;
-  box-shadow: 0 0 35px rgba(236, 72, 153, 0.8) !important;
-}
-
-/* Botones del menú móvil */
 .quantum-mobile-btn {
   background: rgba(17, 24, 39, 0.9) !important;
   border: 1px solid rgba(79, 70, 229, 0.5) !important;
-  border-left: 3px solid transparent !important;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: all 0.3s ease !important;
+  position: relative !important;
   display: flex !important;
   align-items: center !important;
   text-align: left !important;
-  overflow: visible !important; /* CAMBIO: permitir que el efecto se vea */
-  margin-left: 4px !important; /* AGREGADO: espacio para el efecto del borde */
-  
-  /* QUITAR FOCUS OUTLINE */
   outline: none !important;
   box-shadow: none !important;
+  margin: 0 !important;
+  padding: 16px !important; /* Equivalente a p-4 */
 }
 
-.quantum-mobile-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -4px; /* CAMBIO: posicionar correctamente el borde */
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    #7c3aed,
-    #a855f7,
-    #c084fc,
-    #e879f9,
-    #7c3aed
-  );
-  background-size: 100% 200%;
-  animation: quantumMobileBorder 2s ease-in-out infinite;
-  opacity: 0; /* OCULTO POR DEFECTO */
-  transition: opacity 0.3s ease;
-  border-radius: 0 4px 4px 0;
-  z-index: 0; /* AGREGADO: z-index para que esté detrás del texto */
+/* Clase específica para el texto del botón móvil */
+.quantum-mobile-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500 !important;
+  width: 100% !important;
+  display: block !important;
 }
 
-.quantum-mobile-btn:hover::before {
-  opacity: 1 !important; /* SE VE AL HOVER */
+.quantum-mobile-btn:hover .quantum-mobile-text {
+  color: rgb(255, 255, 255) !important;
+}
+
+.quantum-mobile-btn:hover,
+.quantum-mobile-btn:active {
+  background: rgba(124, 58, 237, 0.3) !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
 }
 
 .quantum-mobile-btn:hover {
-  background: rgba(124, 58, 237, 0.3) !important;
-  border-color: #7c3aed !important;
-  transform: translateX(4px); /* REDUCIDO: menos desplazamiento */
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
+  transform: translateX(4px) !important;
 }
 
-.quantum-mobile-btn-internal span {
-  position: relative;
-  z-index: 2;
-  margin-left: 8px; /* Espacio para el borde interno */
+.quantum-mobile-btn:active {
+  transform: translateX(2px) !important;
 }
 
-/* OPCIÓN 3: Efecto de borde interno - CLASE COMPLETA */
-.quantum-mobile-btn-internal {
+.quantum-mobile-btn:not(:hover):not(:active):not(:focus-visible) {
   background: rgba(17, 24, 39, 0.9) !important;
   border: 1px solid rgba(79, 70, 229, 0.5) !important;
-  transition: all 0.3s ease;
-  position: relative;
-  display: flex !important;
-  align-items: center !important;
-  text-align: left !important;
-  overflow: hidden !important;
-  
-  /* QUITAR FOCUS OUTLINE */
-  outline: none !important;
+  transform: translateX(0) !important;
   box-shadow: none !important;
 }
 
-.quantum-mobile-btn-internal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    #7c3aed,
-    #a855f7,
-    #c084fc,
-    #e879f9,
-    #7c3aed
-  );
-  background-size: 100% 200%;
-  animation: quantumMobileBorder 2s ease-in-out infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+/* Asegurar que el contenedor permita el overflow de los efectos */
+.mobile-menu-container {
+  overflow: visible !important;
 }
 
-.quantum-mobile-btn-internal:hover::before {
-  opacity: 1 !important;
+.mobile-menu-container .space-y-2 {
+  overflow: visible !important;
+  gap: 12px !important; /* Más espacio entre botones */
 }
 
-.quantum-mobile-btn-internal:hover {
-  background: rgba(124, 58, 237, 0.3) !important;
-  border-color: #7c3aed !important;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
+.space-y-2 {
+  overflow: visible !important;
 }
 
-.quantum-mobile-btn-internal span {
-  position: relative;
-  z-index: 2;
-  margin-left: 8px; /* Espacio para el borde interno */
-}
-
-/* CTA móvil */
-.cta-mobile-btn {
-  background: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899) !important;
-  background-size: 200% 200%;
-  border: 2px solid rgba(79, 70, 229, 0.8) !important;
-  animation: ctaMobileGlow 2s ease-in-out infinite;
-  position: relative;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  
-  /* QUITAR FOCUS OUTLINE */
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.cta-mobile-btn::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: conic-gradient(
-    from 0deg,
-    #4f46e5,
-    #7c3aed,
-    #ec4899,
-    #06b6d4,
-    #4f46e5
-  );
-  border-radius: inherit;
-  z-index: -1;
-  animation: quantumBorder 3s linear infinite;
-  opacity: 0.6;
-}
-
-.cta-mobile-btn:hover::before {
-  opacity: 1 !important;
-  animation-duration: 1.5s;
-}
-
-.cta-mobile-btn:hover {
-  background-position: 100% 100%;
-  border-color: #ec4899 !important;
-  box-shadow: 0 0 30px rgba(236, 72, 153, 0.7) !important;
-  transform: scale(1.02);
+/* Clase específica para agregar más espacio entre botones móviles */
+.mobile-menu-spacing > * + * {
+  margin-top: 12px !important; /* Equivalente a space-y-3 */
 }
 
 /* Botones sociales con quantum */
@@ -403,8 +279,6 @@ button:focus-visible {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  
-  /* QUITAR FOCUS OUTLINE */
   outline: none !important;
   box-shadow: none !important;
 }
@@ -425,13 +299,13 @@ button:focus-visible {
   );
   border-radius: 50%;
   animation: quantumSocialSpin 2s linear infinite;
-  opacity: 0; /* OCULTO POR DEFECTO */
+  opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
 }
 
 .quantum-social-btn:hover::before {
-  opacity: 1 !important; /* SE VE AL HOVER */
+  opacity: 1 !important;
 }
 
 .quantum-social-btn:hover {
@@ -442,11 +316,6 @@ button:focus-visible {
 /* ========================
    ANIMACIONES QUANTUM
    ======================== */
-
-@keyframes quantumSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 @keyframes quantumBorder {
   0% { transform: rotate(0deg); }
@@ -464,28 +333,15 @@ button:focus-visible {
   }
 }
 
-@keyframes quantumMobileBorder {
-  0%, 100% { background-position: 0% 0%; }
-  50% { background-position: 0% 100%; }
-}
-
-@keyframes ctaMobileGlow {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
-    background-position: 0% 50%;
-  }
-  50% { 
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.7);
-    background-position: 100% 50%;
-  }
-}
-
 @keyframes quantumSocialSpin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* ANIMACIONES ORIGINALES */
+/* ========================
+   ANIMACIONES GENERALES
+   ======================== */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -547,7 +403,10 @@ button:focus-visible {
   }
 }
 
-/* CLASES UTILITARIAS */
+/* ========================
+   CLASES UTILITARIAS
+   ======================== */
+
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -570,7 +429,6 @@ button:focus-visible {
   animation: gradientShift 8s ease infinite;
 }
 
-/* EFECTOS DE HOVER */
 .hover-glow:hover {
   box-shadow: 
     0 0 20px rgba(79, 70, 229, 0.4),
@@ -578,7 +436,6 @@ button:focus-visible {
     0 0 60px rgba(79, 70, 229, 0.1);
 }
 
-/* EFECTOS DE TEXTO */
 .text-glow {
   text-shadow: 
     0 0 10px rgba(79, 70, 229, 0.5),
@@ -586,7 +443,10 @@ button:focus-visible {
     0 0 30px rgba(79, 70, 229, 0.1);
 }
 
-/* SCROLLBAR PERSONALIZADA */
+/* ========================
+   SCROLLBAR PERSONALIZADA
+   ======================== */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -604,7 +464,10 @@ button:focus-visible {
   background: linear-gradient(45deg, #6366f1, #8b5cf6);
 }
 
-/* EFECTOS DE PARTÍCULAS LEGACY (por si acaso) */
+/* ========================
+   EFECTOS DE PARTÍCULAS
+   ======================== */
+
 .stars {
   position: absolute;
   width: 2px;
@@ -627,50 +490,34 @@ button:focus-visible {
 }
 
 /* ========================
-   RESPONSIVE - AJUSTES PARA MÓVIL
+   RESPONSIVE
    ======================== */
 
-/* Reducir intensidad en móvil para performance */
 @media (max-width: 768px) {
   .global-particles {
-    opacity: 0.7; /* Menos intenso en móvil para mejor performance */
+    opacity: 0.7;
   }
   
-  .quantum-nav-btn::before,
-  .cta-quantum-btn::before {
-    animation-duration: 4s; /* Más lento en móvil */
+  .quantum-nav-btn::before {
+    animation-duration: 4s;
   }
   
   .quantum-social-btn:hover {
-    transform: scale(1.05); /* Menos escala en móvil */
+    transform: scale(1.05);
   }
   
-  /* Ajustar padding del main en móvil */
   main {
-    padding-top: 64px; /* Menos espacio en móvil */
+    padding-top: 64px;
   }
-}
-
-/* ===== MÓVIL EXTRA PEQUEÑO ===== */
-@media (max-width: 480px) {
-  /* Ajustes adicionales para pantallas muy pequeñas si son necesarios */
 }
 
 /* ========================
-   ACCESIBILIDAD - REDUCIR ANIMACIONES
+   ACCESIBILIDAD
    ======================== */
 
-/* Desactivar animaciones si el usuario prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   .quantum-nav-btn::before,
-  .cta-quantum-btn::before,
-  .quantum-mobile-btn::before,
   .quantum-social-btn::before {
-    animation: none;
-  }
-  
-  .cta-quantum-btn,
-  .cta-mobile-btn {
     animation: none;
   }
 }

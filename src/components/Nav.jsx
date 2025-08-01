@@ -37,10 +37,42 @@ function Nav() {
     document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
   };
 
+  // FUNCIÓN MEJORADA PARA MANEJAR CLICKS EN BOTONES
   const handleButtonClick = (e, href) => {
     e.preventDefault();
-    e.target.blur(); // Quitar el focus del botón para eliminar el outline
-    handleMenuClick(href);
+    
+    // FORZAR BLUR INMEDIATAMENTE
+    e.target.blur();
+    
+    // REMOVER CLASES DE FOCUS SI EXISTEN
+    e.target.classList.remove('focus-visible');
+    
+    // PEQUEÑO DELAY PARA ASEGURAR QUE EL BLUR SE APLIQUE
+    setTimeout(() => {
+      // ASEGURAR QUE NO QUEDE NINGÚN ESTADO DE FOCUS
+      if (document.activeElement === e.target) {
+        document.activeElement.blur();
+      }
+      
+      // EJECUTAR LA NAVEGACIÓN
+      handleMenuClick(href);
+    }, 50);
+  };
+
+  // FUNCIÓN PARA MANEJAR EL LOGO
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    e.target.blur();
+    
+    // BUSCAR EL ELEMENTO IMG DENTRO DEL ENLACE
+    const imgElement = e.target.querySelector('img');
+    if (imgElement) {
+      imgElement.blur();
+    }
+    
+    setTimeout(() => {
+      handleMenuClick('#hero');
+    }, 50);
   };
 
   return (
@@ -68,6 +100,10 @@ function Nav() {
                   <button
                     key={item.href}
                     onClick={(e) => handleButtonClick(e, item.href)}
+                    onMouseLeave={(e) => {
+                      // FORZAR BLUR AL SALIR EL MOUSE TAMBIÉN
+                      e.target.blur();
+                    }}
                     className="quantum-nav-btn relative overflow-hidden rounded-lg focus:outline-none focus:ring-0"
                   >
                     <span className="relative z-10">{item.label}</span>
@@ -80,11 +116,7 @@ function Nav() {
             <div className="flex-1 flex justify-center">
               <a
                 href="#hero"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.target.blur();
-                  handleMenuClick('#hero');
-                }}
+                onClick={handleLogoClick}
                 className="flex items-center focus:outline-none"
               >
                 <img
@@ -133,16 +165,23 @@ function Nav() {
             </button>
           </div>
 
-          {/* Opciones del menú móvil con efectos */}
-          <div className="flex-1 px-6 py-8">
-            <div className="space-y-2">
+          {/* Opciones del menú móvil con efectos - VERSIÓN FINAL CON MÁS ESPACIO */}
+          <div className="flex-1 px-6 py-8 mobile-menu-container">
+            <div className="mobile-menu-spacing">
               {menuItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={(e) => handleButtonClick(e, item.href)}
-                  className="quantum-mobile-btn w-full text-left text-white/90 hover:text-white p-4 rounded-xl transition-all duration-300 font-medium relative overflow-hidden focus:outline-none focus:ring-0"
+                  onMouseLeave={(e) => {
+                    // FORZAR BLUR AL SALIR EL MOUSE EN MÓVIL TAMBIÉN
+                    e.target.blur();
+                  }}
+                  className="quantum-mobile-btn w-full text-left rounded-xl transition-all duration-300 font-medium relative focus:outline-none focus:ring-0"
                 >
-                  <span className="relative z-10">{item.label}</span>
+                  {/* USAR CLASE CSS ESPECÍFICA EN LUGAR DE INLINE STYLES */}
+                  <span className="quantum-mobile-text">
+                    {item.label}
+                  </span>
                 </button>
               ))}
             </div>
