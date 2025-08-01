@@ -22,13 +22,8 @@ const Services = () => {
       description: t('services.items.art.description'),
       icon: "🎨",
       features: t('services.items.art.features')
-    },
-    {
-      title: t('services.items.sound.title'),
-      description: t('services.items.sound.description'),
-      icon: "🎵",
-      features: t('services.items.sound.features')
     }
+    // Eliminé la tarjeta de diseño de sonido
   ];
 
   return (
@@ -41,7 +36,8 @@ const Services = () => {
           {t('services.subtitle')}
         </p>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* Cambié el grid a 3 columnas en lugar de 4 para que se vea mejor */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <div 
               key={index}

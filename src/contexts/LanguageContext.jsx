@@ -53,12 +53,8 @@ const translations = {
           title: "Arte y animación",
           description: "Diseño visual único y animaciones fluidas que dan vida a cada proyecto.",
           features: ["Arte 2D", "Diseño de Personajes", "Diseño UI/UX"]
-        },
-        sound: {
-          title: "Diseño de sonido",
-          description: "Ambientes inmersivos y banda sonora original que complementan la experiencia.",
-          features: ["Efectos de Sonido", "Composición Musical", "Implementación de Audio"]
         }
+        // Eliminé la sección de sound (diseño de sonido)
       },
       caseStudy: {
         title: "Caso de Éxito: Müecas Game",
@@ -167,12 +163,8 @@ const translations = {
           title: "Art & Animation",
           description: "Unique visual design and fluid animations that bring each project to life.",
           features: ["2D Art", "Character Design", "UI/UX Design"]
-        },
-        sound: {
-          title: "Sound Design",
-          description: "Immersive environments and original soundtrack that complement the experience.",
-          features: ["Sound Effects", "Musical Composition", "Audio Implementation"]
         }
+        // Eliminé la sección de sound (diseño de sonido)
       },
       caseStudy: {
         title: "Success Story: Müecas Game",
