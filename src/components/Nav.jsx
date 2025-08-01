@@ -86,12 +86,12 @@ function Nav() {
             {/* Botón hamburguesa móvil + Secciones desktop */}
             <div className="flex items-center flex-1">
               <button
-                onClick={() => setIsOpen(true)}
+                onClick={() => setIsOpen(!isOpen)}
                 onBlur={(e) => e.target.blur()}
                 className="md:hidden text-2xl text-white hover:text-indigo-400 transition-colors mr-3 focus:outline-none"
-                aria-label="Abrir menú"
+                aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
               >
-                ☰
+                {isOpen ? "✕" : "☰"}
               </button>
 
               {/* Menú de secciones desktop con Quantum Effect */}
