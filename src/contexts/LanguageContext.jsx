@@ -75,23 +75,26 @@ const translations = {
           title: "Project C.O.R.V.U.S.",
           description: "Un thriller de supervivencia en 2D que te mantendrá al borde del asiento con su atmósfera tensa y mecánicas innovadoras.",
           genre: "Terror de Supervivencia - 2D",
-          features: ["Atmósfera única", "Supervivencia", "Historia inmersiva"]
+          features: ["Atmósfera única", "Supervivencia", "Historia inmersiva"],
+          status: "Disponible",
         },
         muecas: {
           title: "Müecas Game", 
           description: "Un juego de supervivencia endless runner en 2D con mecánicas adictivas y desafíos constantes.",
           genre: "Supervivencia - 2D - Corredor Infinito",
-          features: ["Corredor Infinito", "Supervivencia", "Alta rejugabilidad"]
+          features: ["Corredor Infinito", "Supervivencia", "Alta rejugabilidad"],
+        status: "Disponible",
         },
         slash: {
           title: "Slash 'Em Out", 
           description: "Juego de acción casual en 2D donde moverse es atacar. Cada salto elimina enemigos y exige precisión, mezclando reflejos, estrategia y ritmo frenético.",
-          genre: "Action - 2D - Mobile",
-          features: ["Acción", "Estrategia", "Mobile - Android"]
+          genre: "Acción - 2D - Mobile",
+          features: ["Plataformas", "Estrategia", "Android"],
+          status: "Proximamente",
         }
       },
-      status: "Disponible",
-      playNow: "Jugar Ahora"
+      playNow: "Jugar Ahora",
+      comingSoon: "Próximamente",
     },
     contact: {
       title: "Contacto",
@@ -191,17 +194,26 @@ const translations = {
           title: "Project C.O.R.V.U.S.",
           description: "A 2D survival thriller that will keep you on the edge of your seat with its tense atmosphere and innovative mechanics.",
           genre: "Survival Horror - 2D",
-          features: ["Unique Atmosphere", "Survival", "Immersive Story"]
+          features: ["Unique Atmosphere", "Survival", "Immersive Story"],
+          status: "Available",
         },
         muecas: {
           title: "Müecas Game",
           description: "A 2D endless runner survival game with addictive mechanics and constant challenges.",
           genre: "Survival - 2D - Endless Runner",
-          features: ["Endless Runner", "Survival", "High Replayability"]
+          features: ["Endless Runner", "Survival", "High Replayability"],
+          status: "Available",
+        },
+        slash: {
+          title: "Slash 'Em Out",
+          description: "A 2D casual action game where moving is attacking. Every jump eliminates enemies and demands precision, combining reflexes, strategy, and frenetic pace.",
+          genre: "Action - 2D - Mobile",
+          features: ["Platformer", "Strategy", "Android"],
+          status: "Coming Soon",
         }
       },
-      status: "Available",
-      playNow: "Play Now"
+      playNow: "Play Now",
+      comingSoon: "Coming Soon",
     },
     contact: {
       title: "Contact",

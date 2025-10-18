@@ -12,7 +12,7 @@ const Projects = () => {
       image: "/images/corvus_logo_SinNombre.png",
       link: "https://astroriftgames.itch.io/project-corvus",
       genre: t('projects.games.corvus.genre'),
-      status: t('projects.status'),
+      status: t('projects.games.corvus.status'),
       features: t('projects.games.corvus.features')
     },
     {
@@ -22,7 +22,7 @@ const Projects = () => {
       image: "/images/MuecasGameLogo.jpg",
       link: "https://astroriftgames.itch.io/muecas",
       genre: t('projects.games.muecas.genre'),
-      status: t('projects.status'),
+      status: t('projects.games.muecas.status'),
       features: t('projects.games.muecas.features')
     }
 
@@ -33,9 +33,9 @@ const Projects = () => {
       title: t('projects.games.slash.title'),
       description: t('projects.games.slash.description'),
       image: "/images/SlashEmOut.png",
-      link: "https://astroriftgames.itch.io/muecas",
+      link: "", // Agrega el enlace cuando esté disponible
       genre: t('projects.games.slash.genre'),
-      status: t('projects.status'),
+      status: t('projects.games.slash.status'),
       features: t('projects.games.slash.features')
   }
 
@@ -49,42 +49,7 @@ const Projects = () => {
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             {t('projects.subtitle')}
           </p>
-        </div>
-        
-        {/* <div className="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
-          
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-center">
-              <img 
-                src="/images/SlashEmOut.png" 
-                alt="Slash 'Em Out"
-                className="w-200 h-75 object-cover rounded-xl mx-auto shadow-lg"
-              />
-            </div>
-            <div className="text-left" style={{justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column', height: '100%'}}>
-              <h3 className="text-4xl font-bold mb-6 text-white">
-                  {t('projects.games.slash.title')}
-              </h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                {t('projects.games.slash.description')}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
-                  {t('services.caseStudy.metrics.engagement')}
-                </span>
-                <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">
-                  {t('services.caseStudy.metrics.reach')}
-                </span>
-                <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">
-                  {t('services.caseStudy.metrics.roi')}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-
-        
+        </div>        
         <div 
               key={slash.id}
               className="grid md:grid-cols-2 items-center group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
@@ -99,7 +64,7 @@ const Projects = () => {
                 />
                 
                 <div className="absolute top-4 right-4">
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-gradient-to-r from-indigo-400 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {slash.status}
                   </span>
                 </div>
@@ -130,14 +95,14 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-4 mt-auto">
-                  <a 
+                  <span
                     href={slash.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
+                    className="flex-1 bg-gray-600 hover:bg-gray-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
                   >
-                    {t('projects.playNow')}
-                  </a>
+                    {t('projects.comingSoon')}
+                  </span>
                 </div>
               </div>
             </div>
