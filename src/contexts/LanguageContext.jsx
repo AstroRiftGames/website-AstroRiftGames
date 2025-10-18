@@ -82,6 +82,12 @@ const translations = {
           description: "Un juego de supervivencia endless runner en 2D con mecánicas adictivas y desafíos constantes.",
           genre: "Supervivencia - 2D - Corredor Infinito",
           features: ["Corredor Infinito", "Supervivencia", "Alta rejugabilidad"]
+        },
+        slash: {
+          title: "Slash 'Em Out", 
+          description: "Juego de acción casual en 2D donde moverse es atacar. Cada salto elimina enemigos y exige precisión, mezclando reflejos, estrategia y ritmo frenético.",
+          genre: "Action - 2D - Mobile",
+          features: ["Acción", "Estrategia", "Mobile - Android"]
         }
       },
       status: "Disponible",
