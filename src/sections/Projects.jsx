@@ -52,7 +52,7 @@ const Projects = () => {
         </div>        
         <div 
               key={slash.id}
-              className="grid md:grid-cols-2 items-center group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
+              className="grid md:grid-cols-2 items-center group halloween-panel rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
               >
               <div className="relative overflow-hidden"
               style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -111,7 +111,7 @@ const Projects = () => {
           {games.map((game) => (
             <div 
               key={game.id}
-              className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
+              className="group halloween-panel rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
             >
               <div className="relative overflow-hidden">
                 <img 

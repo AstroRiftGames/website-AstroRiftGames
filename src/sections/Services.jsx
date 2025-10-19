@@ -41,7 +41,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/20 flex flex-col h-full min-h-[400px]"
+              className="group halloween-panel rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/20 flex flex-col h-full min-h-[400px]"
             >
               <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
@@ -71,7 +71,7 @@ const Services = () => {
         </div>
         
         {/* Sección de caso de éxito */}
-        <div className="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
+        <div className="mt-20 halloween-panel rounded-2xl p-8 border border-gray-700">
           <h3 className="text-3xl font-bold mb-6 text-white">
             {t('services.caseStudy.title')}
           </h3>

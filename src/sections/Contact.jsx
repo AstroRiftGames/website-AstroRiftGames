@@ -260,7 +260,7 @@ const Contact = () => {
 
         {/* Formulario de contacto */}
         <div id="contact-form" className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 border border-gray-700">
+          <div className="halloween-panel rounded-2xl p-8 md:p-12 border border-gray-700">
             {submitted ? (
               <div className="text-center py-8">
                 <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
