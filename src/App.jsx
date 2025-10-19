@@ -1,16 +1,16 @@
 import './App.css'
-import { LanguageProvider } from './contexts/LanguageContext'; // DESCOMENTAR
+import { LanguageProvider } from './contexts/LanguageContext';
 import { Nav, Footer } from './components/Index';
 import { Hero, About, Services, Projects, Contact } from './sections/'
 import { FloatingParticles } from './components/Index';
 
 function App() {
   return (
-    <LanguageProvider> {/* DESCOMENTAR */}
+    <LanguageProvider>
       <div className="bg-black text-white min-h-screen relative">
         <FloatingParticles 
           particleCount={40}
-          colors={['#4f46e5', '#7c3aed', '#ec4899', '#06b6d4']}
+          colors={['#f97316', '#ea580c', '#fb923c', '#fdba74']}
           enableGlow={true}
           speed="slow"
           className="global-particles"

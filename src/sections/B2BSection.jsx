@@ -51,7 +51,7 @@ const B2BSection = () => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
             ¿Por qué Gamificar tu Marca?
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -64,7 +64,7 @@ const B2BSection = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="bg-gray-800/50 rounded-xl p-6 text-center hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-indigo-500"
+              className="bg-gray-800/50 rounded-xl p-6 text-center hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-orange-500"
             >
               <div className="text-4xl mb-4">{benefit.icon}</div>
               <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
@@ -84,11 +84,11 @@ const B2BSection = () => {
               <div key={index} className="relative">
                 {/* Línea conectora */}
                 {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform translate-x-4"></div>
+                  <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 transform translate-x-4"></div>
                 )}
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">
                     {item.step}
                   </div>
                   <h4 className="text-xl font-bold text-white mb-3">{item.title}</h4>
@@ -101,7 +101,7 @@ const B2BSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-2xl p-8 border border-indigo-500/30">
+          <div className="bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-2xl p-8 border border-orange-500/30">
             <h3 className="text-2xl font-bold text-white mb-4">
               ¿Listo para Gamificar tu Marca?
             </h3>
@@ -110,7 +110,7 @@ const B2BSection = () => {
             </p>
             <button 
               onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Solicitar Consulta Gratuita
             </button>

@@ -29,7 +29,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 px-4 bg-black">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
           {t('services.title')}
         </h2>
         <p className="text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
@@ -41,13 +41,13 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 hover:shadow-indigo-500/20 flex flex-col h-full min-h-[400px]"
+              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/20 flex flex-col h-full min-h-[400px]"
             >
               <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
               
-              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-400 transition-colors">
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-orange-400 transition-colors">
                 {service.title}
               </h3>
               
@@ -59,9 +59,9 @@ const Services = () => {
                 {service.features.map((feature, featureIndex) => (
                   <div 
                     key={featureIndex}
-                    className="flex items-center justify-center text-sm text-indigo-400 bg-indigo-500/10 rounded-full py-1 px-3"
+                    className="flex items-center justify-center text-sm text-orange-400 bg-orange-500/10 rounded-full py-1 px-3"
                   >
-                    <span className="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
                     {feature}
                   </div>
                 ))}
@@ -87,7 +87,7 @@ const Services = () => {
                 <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">
                   {t('services.caseStudy.metrics.reach')}
                 </span>
-                <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">
+                <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">
                   {t('services.caseStudy.metrics.roi')}
                 </span>
               </div>
@@ -105,7 +105,7 @@ const Services = () => {
         <div className="mt-16">
           <button 
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
           >
             {t('services.cta')}
           </button>

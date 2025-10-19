@@ -43,7 +43,7 @@ const Projects = () => {
     <section id="projects" className="py-20 px-4 bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 halloween-title bg-clip-text text-transparent">
             {t('projects.title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -52,7 +52,7 @@ const Projects = () => {
         </div>        
         <div 
               key={slash.id}
-              className="grid md:grid-cols-2 items-center group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
+              className="grid md:grid-cols-2 items-center group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
               >
               <div className="relative overflow-hidden"
               style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -64,18 +64,18 @@ const Projects = () => {
                 />
                 
                 <div className="absolute top-4 right-4">
-                  <span className="bg-gradient-to-r from-indigo-400 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {slash.status}
                   </span>
                 </div>
               </div>
               
               <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-3xl font-bold mb-2 text-white group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-3xl font-bold mb-2 text-white group-hover:text-orange-400 transition-colors">
                   {slash.title}
                 </h3>
                 
-                <p className="text-indigo-400 font-semibold mb-4">
+                <p className="text-orange-400 font-semibold mb-4">
                   {slash.genre}
                 </p>
                 
@@ -87,7 +87,7 @@ const Projects = () => {
                   {slash.features.map((feature, index) => (
                     <span 
                       key={index}
-                      className="bg-indigo-500/20 text-indigo-400 px-3 py-1 rounded-full text-sm border border-indigo-500/30"
+                      className="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm border border-orange-500/30"
                     >
                       {feature}
                     </span>
@@ -111,7 +111,7 @@ const Projects = () => {
           {games.map((game) => (
             <div 
               key={game.id}
-              className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
+              className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 flex flex-col h-full"
             >
               <div className="relative overflow-hidden">
                 <img 
@@ -128,11 +128,11 @@ const Projects = () => {
               </div>
               
               <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-3xl font-bold mb-2 text-white group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-3xl font-bold mb-2 text-white group-hover:text-orange-400 transition-colors">
                   {game.title}
                 </h3>
                 
-                <p className="text-indigo-400 font-semibold mb-4">
+                <p className="text-orange-400 font-semibold mb-4">
                   {game.genre}
                 </p>
                 
@@ -144,7 +144,7 @@ const Projects = () => {
                   {game.features.map((feature, index) => (
                     <span 
                       key={index}
-                      className="bg-indigo-500/20 text-indigo-400 px-3 py-1 rounded-full text-sm border border-indigo-500/30"
+                      className="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm border border-orange-500/30"
                     >
                       {feature}
                     </span>
@@ -156,7 +156,7 @@ const Projects = () => {
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
+                    className="flex-1 bg-orange-600 hover:bg-orange-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
                   >
                     {t('projects.playNow')}
                   </a>
