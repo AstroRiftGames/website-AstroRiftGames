@@ -4,8 +4,9 @@ const FloatingParticles = ({
   particleCount = 30,
   colors = ['#4f46e5', '#7c3aed', '#ec4899', '#06b6d4'],
   enableGlow = true,
-  speed = 'medium', // slow, medium, fast
-  className = ''
+  speed = 'medium',
+  className = '',
+  halloweenMode = true // NUEVO: activar modo Halloween
 }) => {
   const containerRef = useRef(null);
 
@@ -16,11 +17,11 @@ const FloatingParticles = ({
     // Limpiar partículas existentes
     container.innerHTML = '';
 
-    // Configuración de velocidad
+    // Configuración de velocidad (más lento para Halloween)
     const speedConfig = {
-      slow: { min: 8, max: 15 },
-      medium: { min: 4, max: 8 },
-      fast: { min: 2, max: 5 }
+      slow: { min: 12, max: 20 },    // MÁS LENTO
+      medium: { min: 8, max: 12 },
+      fast: { min: 4, max: 8 }
     };
 
     const currentSpeed = speedConfig[speed];
@@ -30,31 +31,61 @@ const FloatingParticles = ({
       
       // Configuración básica
       particle.style.position = 'absolute';
-      particle.style.borderRadius = '50%';
       particle.style.pointerEvents = 'none';
       
-      // Tamaño aleatorio
-      const size = Math.random() * 6 + 2; // 2-8px
-      particle.style.width = size + 'px';
-      particle.style.height = size + 'px';
-      
-      // Color aleatorio del array
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      
-      // Determinar si es partícula con brillo (30% probabilidad)
-      const hasGlow = enableGlow && Math.random() > 0.7;
-      
-      if (hasGlow) {
-        particle.style.background = `radial-gradient(circle, ${color}, ${color}aa)`;
-        particle.style.boxShadow = `
-          0 0 ${size * 2}px ${color}66,
-          0 0 ${size * 4}px ${color}33,
-          0 0 ${size * 6}px ${color}1a
+      if (halloweenMode) {
+        // ===== MODO HALLOWEEN: FANTASMAS CON IMAGEN =====
+        
+        // Tamaño aleatorio para los fantasmas
+        const size = Math.random() * 40 + 30; // 30-70px
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // USAR IMAGEN EN LUGAR DE SVG
+        // Coloca tu imagen en: public/images/ghost.png
+        particle.innerHTML = `
+          <img 
+            src="/src/assets/ghost.svg" 
+            alt="ghost" 
+            style="
+              width: 100%; 
+              height: 100%; 
+              object-fit: contain;
+              filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+            "
+          />
         `;
-        particle.style.opacity = '0.9';
+        
+        // Opacidad variable para efecto fantasmal
+        particle.style.opacity = (Math.random() * 0.4 + 0.6).toString(); // 0.6-1.0
+        
+        // Animación de parpadeo/flotación fantasmal
+        const blinkDuration = Math.random() * 2 + 1; // 2-5 segundos
+        particle.style.animation = `ghostBlink ${blinkDuration}s ease-in-out infinite`;
+        
       } else {
-        particle.style.background = `linear-gradient(45deg, ${color}, ${color}dd)`;
-        particle.style.opacity = '0.7';
+        // ===== MODO NORMAL: PARTÍCULAS CIRCULARES =====
+        particle.style.borderRadius = '50%';
+        
+        const size = Math.random() * 6 + 2; // 2-8px
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const hasGlow = enableGlow && Math.random() > 0.7;
+        
+        if (hasGlow) {
+          particle.style.background = `radial-gradient(circle, ${color}, ${color}aa)`;
+          particle.style.boxShadow = `
+            0 0 ${size * 2}px ${color}66,
+            0 0 ${size * 4}px ${color}33,
+            0 0 ${size * 6}px ${color}1a
+          `;
+          particle.style.opacity = '0.9';
+        } else {
+          particle.style.background = `linear-gradient(45deg, ${color}, ${color}dd)`;
+          particle.style.opacity = '0.7';
+        }
       }
       
       // Posición inicial aleatoria
@@ -69,6 +100,7 @@ const FloatingParticles = ({
         const endY = Math.random() * 100;
         const duration = Math.random() * (currentSpeed.max - currentSpeed.min) + currentSpeed.min;
         
+        // TIEMPOS DE FADE MÁS RÁPIDOS
         const keyframes = [
           { 
             transform: 'translate(0, 0) scale(0.3)', 
@@ -76,13 +108,13 @@ const FloatingParticles = ({
           },
           { 
             transform: 'translate(0, 0) scale(1)', 
-            opacity: hasGlow ? 0.9 : 0.7,
-            offset: 0.1
+            opacity: halloweenMode ? (Math.random() * 0.4 + 0.6) : 0.9,
+            offset: 0.05  // APARECE MÁS RÁPIDO (antes era 0.1)
           },
           { 
             transform: `translate(${(endX - startX) * 0.8}vw, ${(endY - startY) * 0.6}vh) scale(1)`, 
-            opacity: hasGlow ? 0.9 : 0.7,
-            offset: 0.9
+            opacity: halloweenMode ? (Math.random() * 0.4 + 0.6) : 0.9,
+            offset: 0.95  // DESAPARECE MÁS RÁPIDO (antes era 0.9)
           },
           { 
             transform: `translate(${(endX - startX)}vw, ${(endY - startY)}vh) scale(0.3)`, 
@@ -99,7 +131,6 @@ const FloatingParticles = ({
       
       // Función para reiniciar la animación
       const restartAnimation = () => {
-        // Nueva posición inicial
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
         
@@ -121,23 +152,39 @@ const FloatingParticles = ({
         container.innerHTML = '';
       }
     };
-  }, [particleCount, colors, enableGlow, speed]);
+  }, [particleCount, colors, enableGlow, speed, halloweenMode]);
 
   return (
-    <div 
-      ref={containerRef}
-      className={`floating-particles-container ${className}`}
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        pointerEvents: 'none',
-        zIndex: 1
-      }}
-    />
+    <>
+      {/* Estilos CSS para la animación de parpadeo de fantasmas */}
+      <style>{`
+        @keyframes ghostBlink {
+          0%, 100% {
+            opacity: 1;
+            filter: brightness(1);
+          }
+          50% {
+            opacity: 0.7;
+            filter: brightness(1.2);
+          }
+        }
+      `}</style>
+      
+      <div 
+        ref={containerRef}
+        className={`floating-particles-container ${className}`}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          pointerEvents: 'none',
+          zIndex: 1
+        }}
+      />
+    </>
   );
 };
 
