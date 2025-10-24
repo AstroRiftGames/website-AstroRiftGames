@@ -7,9 +7,14 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-4 bg-gray-900">
       <div className="max-w-6xl mx-auto">
+
+
+        
+
         {/* Toda la sección enmarcada */}
         <div className="halloween-panel backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 border border-gray-700 hover:border-orange-500 transition-all duration-300">
           <div className="md:flex items-center gap-12 text-white">
+            
             <div className="md:w-1/2 mb-8 md:mb-0">
               <div className="relative">
                 <img

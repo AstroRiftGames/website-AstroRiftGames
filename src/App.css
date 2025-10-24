@@ -124,7 +124,7 @@ button:focus-visible {
   padding: 0 8px !important;
   white-space: nowrap;
   font-size: 0.875rem !important;
-  overflow: hidden;
+  overflow: visible !important;
   text-overflow: ellipsis;
   outline: none !important;
   box-shadow: none !important;
@@ -157,6 +157,7 @@ button:focus-visible {
   animation: none;
   opacity: 0;
   transition: opacity 0.3s ease;
+  display: none !important;
 }
 
 /* Estados interactivos del botón nav */
@@ -287,6 +288,7 @@ button:focus-visible {
 /* Clase específica para agregar más espacio entre botones móviles */
 .mobile-menu-spacing>*+* {
   margin-top: 12px !important;
+  overflow: visible !important;
 }
 
 /* Botones sociales con quantum */
@@ -564,3 +566,5 @@ button:focus-visible {
     animation: none;
   }
 }
+
+
