@@ -90,11 +90,11 @@ const translations = {
           description: "Juego de acción casual en 2D donde moverse es atacar. Cada salto elimina enemigos y exige precisión, mezclando reflejos, estrategia y ritmo frenético.",
           genre: "Acción - 2D - Mobile",
           features: ["Plataformas", "Estrategia", "Android"],
-          status: "Proximamente",
+          status: "Proximamente!",
         }
       },
       playNow: "Jugar Ahora",
-      comingSoon: "Próximamente",
+      comingSoon: "Próximamente!",
     },
     contact: {
       title: "Contacto",
@@ -209,11 +209,11 @@ const translations = {
           description: "A 2D casual action game where moving is attacking. Every jump eliminates enemies and demands precision, combining reflexes, strategy, and frenetic pace.",
           genre: "Action - 2D - Mobile",
           features: ["Platformer", "Strategy", "Android"],
-          status: "Coming Soon",
+          status: "Coming Soon!",
         }
       },
       playNow: "Play Now",
-      comingSoon: "Coming Soon",
+      comingSoon: "Coming Soon!",
     },
     contact: {
       title: "Contact",
