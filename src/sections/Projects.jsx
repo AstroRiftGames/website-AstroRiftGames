@@ -95,14 +95,11 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-4 mt-auto">
-                  <span
-                    href={slash.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-gray-600 hover:bg-gray-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
-                  >
+                  <button 
+                    className="flex-1 btn-gray !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
+                    >
                     {t('projects.comingSoon')}
-                  </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -153,14 +150,12 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-4 mt-auto">
-                  <a 
-                    href={game.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-orange-600 hover:bg-orange-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
-                  >
+                  <button 
+                    onClick={() => window.open(game.link, "_blank", "noopener,noreferrer")}
+                    className="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
+                    >
                     {t('projects.playNow')}
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

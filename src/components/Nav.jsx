@@ -77,67 +77,68 @@ function Nav() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-        ? 'bg-black/95 backdrop-blur-md shadow-xl border-b border-indigo-500/20'
-        : 'bg-black/80 backdrop-blur-sm'
-        }`}>
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16 md:h-20">
-            {/* Botón hamburguesa móvil + Secciones desktop */}
-            <div className="flex items-center flex-1">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                onBlur={(e) => e.target.blur()}
-                className="md:hidden text-2xl text-white hover:text-indigo-400 transition-colors mr-3 focus:outline-none"
-                aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-              >
-                {isOpen ? "✕" : "☰"}
-              </button>
+        <nav className={`relative top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+          ? 'bg-black/95 backdrop-blur-md shadow-xl border-b border-indigo-500/20'
+          : 'bg-black/80 backdrop-blur-sm'
+          }`}>
+            
+          <div className="w-full px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center h-16 md:h-20">
+              {/* Botón hamburguesa móvil + Secciones desktop */}
+              <div className="flex items-center flex-1">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  onBlur={(e) => e.target.blur()}
+                  className="md:hidden text-2xl text-white hover:text-indigo-400 transition-colors mr-3 focus:outline-none"
+                  aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+                >
+                  {isOpen ? "✕" : "☰"}
+                </button>
 
-              {/* Menú de secciones desktop con Quantum Effect */}
-              <div className="hidden md:flex items-center space-x-3 overflow-visible z-20">
-                {menuItems.map((item) => (
-                  
-                  <button
-                    key={item.href}
-                    onClick={(e) => handleButtonClick(e, item.href)}
-                    onMouseLeave={(e) => e.target.blur()}
-                    className="quantum-nav-btn relative rounded-lg focus:outline-none focus:ring-0 overflow-visible z-10"
-                  >
-                    <img
-                      src="/src/assets/spider.svg"
-                      alt="Astro Rift Games"
-                      className="absolute -top-4 -left-4 h-10 md:h-12 object-contain z-20 pointer-events-none"
-                    />
-                    <span className="relative z-10">{item.label}</span>
-                  </button>
-                ))}
+                {/* Menú de secciones desktop con Quantum Effect */}
+                <div className="hidden md:flex items-center space-x-3 overflow-visible z-20">
+                  {menuItems.map((item) => (
+                    
+                    <button
+                      key={item.href}
+                      onClick={(e) => handleButtonClick(e, item.href)}
+                      onMouseLeave={(e) => e.target.blur()}
+                      className="quantum-nav-btn relative rounded-lg focus:outline-none focus:ring-0 overflow-visible z-10"
+                    >
+                      <img
+                        src="/images/spider.svg"
+                        alt="Astro Rift Games"
+                        className="absolute -top-4 -left-4 h-10 md:h-12 object-contain z-20 pointer-events-none"
+                      />
+                      <span className="relative z-10">{item.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Logo centrado */}
+              <div className="flex-1 flex justify-center">
+                <a
+                  href="#hero"
+                  onClick={handleLogoClick}
+                  className="flex items-center focus:outline-none"
+                >
+                  <img
+                    src="/images/LOGOD6-64x64.png"
+                    alt="Astro Rift Games"
+                    className="h-10 md:h-12 object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </a>
+              </div>
+
+              {/* Botón de idioma y espacio para mantener centrado el logo */}
+              <div className="flex-1 flex justify-end">
+                <LanguageToggle />
               </div>
             </div>
-
-            {/* Logo centrado */}
-            <div className="flex-1 flex justify-center">
-              <a
-                href="#hero"
-                onClick={handleLogoClick}
-                className="flex items-center focus:outline-none"
-              >
-                <img
-                  src="/images/LOGOD6-64x64.png"
-                  alt="Astro Rift Games"
-                  className="h-10 md:h-12 object-contain hover:scale-105 transition-transform duration-300"
-                />
-              </a>
-            </div>
-
-            {/* Botón de idioma y espacio para mantener centrado el logo */}
-            <div className="flex-1 flex justify-end">
-              <LanguageToggle />
-            </div>
           </div>
-        </div>
-      </nav>
-
+        </nav>
+      
       {/* Overlay del menú móvil */}
       <div
         className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -180,10 +181,9 @@ function Nav() {
                   className="quantum-mobile-btn w-full text-left rounded-xl transition-all duration-300 font-medium relative overflow-visible focus:outline-none focus:ring-0 bg-black/40"
                 >
                   <img
-                    src="/src/assets/spider.svg"
-                    alt="Astro Rift Games"
+                    src="/images/spider.svg"
+                    alt=""
                     className="fixed -top-2 -left-2 h-10 object-contain z-[9999] pointer-events-none"
-                    
                   />
                   <span className="quantum-mobile-text relative z-20">{item.label}</span>
                 </button>

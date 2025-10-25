@@ -63,6 +63,11 @@ button {
   position: relative;
   overflow: hidden;
 }
+button.btn-gray {
+  background-image: none;
+  background-color: #6b7280; /* gray-500 */
+  border-color: #9ca3af; /* gray-400 */
+}
 
 button::before {
   content: '';
