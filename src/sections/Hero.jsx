@@ -41,15 +41,13 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
             onClick={scrollToAbout}
-            className="hero-btn-primary"
-            // className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             {t('hero.learnMore')}
           </button>
           <button 
             onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-            className="hero-btn-primary"
-            // className="border-2 border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+            className="border-2 border-indigo-600 text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
           >
             {t('hero.viewGames')}
           </button>

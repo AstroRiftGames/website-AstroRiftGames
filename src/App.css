@@ -10,21 +10,16 @@ body {
   font-family: 'Orbitron', sans-serif;
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(180deg,
-      #000000 0%,
-      /* Negro profundo arriba */
-      #1a0f0a 20%,
-      /* Marrón muy oscuro */
-      #2e1a0f 40%,
-      /* Naranja muy oscuro en el medio */
-      #1f0f0a 60%,
-      /* Marrón oscuro */
-      #0a0a0a 80%,
-      /* Casi negro */
-      #000000 100%
-      /* Negro total al final (footer) */
-    );
-  background-attachment: fixed;
+  background: linear-gradient(
+    180deg,  /* Vertical para que oscurezca hacia abajo */
+    #000000 0%,      /* Negro profundo arriba */
+    #1a1a2e 20%,     /* Azul muy oscuro */
+    #16213e 40%,     /* Azul espacial en el medio */
+    #0f0f23 60%,     /* Púrpura muy oscuro */
+    #0a0a1a 80%,     /* Casi negro */
+    #000000 100%     /* Negro total al final (footer) */
+  );
+  background-attachment: fixed; /* El degradado se mantiene fijo al hacer scroll */
   min-height: 100vh;
 }
 
@@ -43,15 +38,6 @@ footer {
 
 footer {
   z-index: 20;
-}
-
-.hero-btn-primary {
-  background-image: linear-gradient(45deg, #ea580c, #f36d25, #fb923c, #fdba74);
-}
-
-
-.halloween-title {
-  background-image: linear-gradient(to right, #fb923c, #ef4444);
 }
 
 /* NAVBAR - SIEMPRE VISIBLE */
@@ -78,12 +64,12 @@ nav {
 main {
   position: relative;
   z-index: 10;
-  padding-top: 80px;
+  padding-top: 80px; /* Espacio para el navbar fijo */
 }
 
 /* REMOVER OUTLINE Y FOCUS VISUAL DE TODOS LOS BOTONES */
-button,
-button:focus,
+button, 
+button:focus, 
 button:active,
 button:focus-visible,
 a:focus,
@@ -97,7 +83,7 @@ a:focus-visible {
 
 /* FOCUS VISIBLE SOLO PARA ACCESIBILIDAD CON TECLADO */
 button:focus-visible {
-  outline: 2px solid rgba(249, 115, 22, 0.5) !important;
+  outline: 2px solid rgba(79, 70, 229, 0.5) !important;
   outline-offset: 2px !important;
 }
 
@@ -108,7 +94,7 @@ button:focus-visible {
 /* Botones principales del nav desktop */
 .quantum-nav-btn {
   background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid rgba(249, 115, 22, 0.4) !important;
+  border: 1px solid rgba(79, 70, 229, 0.4) !important;
   position: relative;
   transition: all 0.3s ease;
   display: flex !important;
@@ -142,12 +128,14 @@ button:focus-visible {
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: conic-gradient(from 0deg,
-      #ea580c,
-      #fb923c,
-      #fdba74,
-      #fed7aa,
-      #ea580c);
+  background: conic-gradient(
+    from 0deg,
+    #7c3aed,
+    #a855f7,
+    #c084fc,
+    #e879f9,
+    #7c3aed
+  );
   border-radius: inherit;
   z-index: -1;
   animation: none;
@@ -159,11 +147,11 @@ button:focus-visible {
 .quantum-nav-btn:hover,
 .quantum-nav-btn:active,
 .quantum-nav-btn:focus-visible {
-  background: linear-gradient(45deg, #ea580c, #fb923c, #fdba74) !important;
+  background: linear-gradient(45deg, #7c3aed, #a855f7, #c084fc) !important;
   background-size: 200% 200%;
   border: 2px solid transparent !important;
   animation: ctaQuantumGlow 2s ease-in-out infinite;
-  box-shadow: 0 0 35px rgba(251, 146, 60, 0.8) !important;
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.8) !important;
 }
 
 .quantum-nav-btn:hover,
@@ -176,8 +164,8 @@ button:focus-visible {
 }
 
 .quantum-nav-btn:focus-visible {
-  border: 2px solid #fb923c !important;
-  outline: 2px solid rgba(251, 146, 60, 0.8) !important;
+  border: 2px solid #a855f7 !important;
+  outline: 2px solid rgba(168, 85, 247, 0.8) !important;
   outline-offset: 2px !important;
 }
 
@@ -191,7 +179,7 @@ button:focus-visible {
 /* Reset al estado base */
 .quantum-nav-btn:not(:hover):not(:active):not(:focus-visible) {
   background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid rgba(249, 115, 22, 0.4) !important;
+  border: 1px solid rgba(79, 70, 229, 0.4) !important;
   transform: scale(1) !important;
   animation: none !important;
   box-shadow: none !important;
@@ -220,7 +208,7 @@ button:focus-visible {
 
 .quantum-mobile-btn {
   background: rgba(17, 24, 39, 0.9) !important;
-  border: 1px solid rgba(249, 115, 22, 0.5) !important;
+  border: 1px solid rgba(79, 70, 229, 0.5) !important;
   transition: all 0.3s ease !important;
   position: relative !important;
   display: flex !important;
@@ -229,7 +217,7 @@ button:focus-visible {
   outline: none !important;
   box-shadow: none !important;
   margin: 0 !important;
-  padding: 16px !important;
+  padding: 16px !important; /* Equivalente a p-4 */
 }
 
 /* Clase específica para el texto del botón móvil */
@@ -246,9 +234,9 @@ button:focus-visible {
 
 .quantum-mobile-btn:hover,
 .quantum-mobile-btn:active {
-  background: rgba(234, 88, 12, 0.3) !important;
-  border-color: #ea580c !important;
-  box-shadow: 0 0 20px rgba(251, 146, 60, 0.4) !important;
+  background: rgba(124, 58, 237, 0.3) !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
 }
 
 .quantum-mobile-btn:hover {
@@ -261,7 +249,7 @@ button:focus-visible {
 
 .quantum-mobile-btn:not(:hover):not(:active):not(:focus-visible) {
   background: rgba(17, 24, 39, 0.9) !important;
-  border: 1px solid rgba(249, 115, 22, 0.5) !important;
+  border: 1px solid rgba(79, 70, 229, 0.5) !important;
   transform: translateX(0) !important;
   box-shadow: none !important;
 }
@@ -273,7 +261,7 @@ button:focus-visible {
 
 .mobile-menu-container .space-y-2 {
   overflow: visible !important;
-  gap: 12px !important;
+  gap: 12px !important; /* Más espacio entre botones */
 }
 
 .space-y-2 {
@@ -281,8 +269,8 @@ button:focus-visible {
 }
 
 /* Clase específica para agregar más espacio entre botones móviles */
-.mobile-menu-spacing>*+* {
-  margin-top: 12px !important;
+.mobile-menu-spacing > * + * {
+  margin-top: 12px !important; /* Equivalente a space-y-3 */
 }
 
 /* Botones sociales con quantum */
@@ -302,11 +290,13 @@ button:focus-visible {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: conic-gradient(from 0deg,
-      rgba(255, 255, 255, 0.6),
-      transparent,
-      rgba(255, 255, 255, 0.6),
-      transparent);
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.6),
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
   border-radius: 50%;
   animation: quantumSocialSpin 2s linear infinite;
   opacity: 0;
@@ -328,37 +318,24 @@ button:focus-visible {
    ======================== */
 
 @keyframes quantumBorder {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes ctaQuantumGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 25px rgba(234, 88, 12, 0.6);
+  0%, 100% { 
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
     background-position: 0% 50%;
   }
-
-  50% {
-    box-shadow: 0 0 40px rgba(251, 146, 60, 0.8);
+  50% { 
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
     background-position: 100% 50%;
   }
 }
 
 @keyframes quantumSocialSpin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* ========================
@@ -370,7 +347,6 @@ button:focus-visible {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -378,37 +354,28 @@ button:focus-visible {
 }
 
 @keyframes float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
-
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
   }
-
   50% {
-    box-shadow: 0 0 40px rgba(249, 115, 22, 0.6);
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.6);
   }
 }
 
 @keyframes twinkle {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.7;
     transform: scale(1);
   }
-
   50% {
     opacity: 1;
     transform: scale(1.2);
@@ -416,12 +383,9 @@ button:focus-visible {
 }
 
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.5;
   }
@@ -431,11 +395,9 @@ button:focus-visible {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
@@ -462,23 +424,23 @@ button:focus-visible {
 }
 
 .gradient-animation {
-  background: linear-gradient(-45deg, #f97316, #ea580c, #fb923c, #fdba74);
+  background: linear-gradient(-45deg, #4f46e5, #7c3aed, #ec4899, #06b6d4);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
 }
 
 .hover-glow:hover {
-  box-shadow:
-    0 0 20px rgba(249, 115, 22, 0.4),
-    0 0 40px rgba(249, 115, 22, 0.2),
-    0 0 60px rgba(249, 115, 22, 0.1);
+  box-shadow: 
+    0 0 20px rgba(79, 70, 229, 0.4),
+    0 0 40px rgba(79, 70, 229, 0.2),
+    0 0 60px rgba(79, 70, 229, 0.1);
 }
 
 .text-glow {
-  text-shadow:
-    0 0 10px rgba(249, 115, 22, 0.5),
-    0 0 20px rgba(249, 115, 22, 0.3),
-    0 0 30px rgba(249, 115, 22, 0.1);
+  text-shadow: 
+    0 0 10px rgba(79, 70, 229, 0.5),
+    0 0 20px rgba(79, 70, 229, 0.3),
+    0 0 30px rgba(79, 70, 229, 0.1);
 }
 
 /* ========================
@@ -494,12 +456,12 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #f97316, #ea580c);
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #fb923c, #fdba74);
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
 }
 
 /* ========================
@@ -535,15 +497,15 @@ button:focus-visible {
   .global-particles {
     opacity: 0.7;
   }
-
+  
   .quantum-nav-btn::before {
     animation-duration: 4s;
   }
-
+  
   .quantum-social-btn:hover {
     transform: scale(1.05);
   }
-
+  
   main {
     padding-top: 64px;
   }
@@ -554,7 +516,6 @@ button:focus-visible {
    ======================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   .quantum-nav-btn::before,
   .quantum-social-btn::before {
     animation: none;

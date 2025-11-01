@@ -250,7 +250,7 @@ const Contact = () => {
         
         {/* Header principal de la sección */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
             {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -270,7 +270,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('contact.success.title')}</h3>
                 <p className="text-gray-400 mb-2">{t('contact.success.description')}</p>
-                <p className="text-sm text-orange-400">{t('contact.success.confirmation')}</p>
+                <p className="text-sm text-indigo-400">{t('contact.success.confirmation')}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -297,7 +297,7 @@ const Contact = () => {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all duration-200"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200"
                     placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
@@ -313,7 +313,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all duration-200"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200"
                     placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
@@ -329,7 +329,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all duration-200 resize-none"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200 resize-none"
                     placeholder={t('contact.form.messagePlaceholder')}
                   ></textarea>
                 </div>
@@ -343,7 +343,7 @@ const Contact = () => {
                   <div
                     className={`relative w-full border-2 border-dashed rounded-lg p-8 transition-all duration-200 ${
                       isDragging
-                        ? 'border-orange-500 bg-orange-500/10'
+                        ? 'border-indigo-500 bg-indigo-500/10'
                         : 'border-gray-600 hover:border-gray-500'
                     }`}
                     onDragEnter={handleDragEnter}
@@ -357,7 +357,7 @@ const Contact = () => {
                       </svg>
                       <p className="text-gray-300 text-lg mb-3">
                         {t('contact.form.dragDrop')}{' '}
-                        <label className="text-orange-400 cursor-pointer hover:text-orange-300 underline underline-offset-2">
+                        <label className="text-indigo-400 cursor-pointer hover:text-indigo-300 underline underline-offset-2">
                           {t('contact.form.clickSelect')}
                           <input
                             type="file"
@@ -382,8 +382,8 @@ const Contact = () => {
                         {files.map((file, index) => (
                           <div key={index} className="flex items-center justify-between bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:border-gray-600 transition-colors">
                             <div className="flex items-center space-x-3 flex-1">
-                              <div className="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <div className="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                               </div>
@@ -412,7 +412,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed shadow-lg hover:shadow-orange-500/25"
+                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed shadow-lg hover:shadow-indigo-500/25"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
