@@ -108,7 +108,7 @@ function Nav() {
                       <img
                         src="/images/spider.svg"
                         alt="Astro Rift Games"
-                        className="absolute -top-3 -left-2 h-10 md:h-12 object-contain z-20 pointer-events-none"
+                        className="absolute -top-4 -left-4 h-10 md:h-12 object-contain z-20 pointer-events-none"
                       />
                       <span className="relative z-10">{item.label}</span>
                     </button>
