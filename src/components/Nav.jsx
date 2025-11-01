@@ -95,20 +95,17 @@ function Nav() {
               </button>
 
               {/* Menú de secciones desktop con Quantum Effect */}
-              <div className="hidden md:flex items-center space-x-3 overflow-visible z-20">
+              <div className="hidden md:flex items-center space-x-3">
                 {menuItems.map((item) => (
-                  
                   <button
                     key={item.href}
                     onClick={(e) => handleButtonClick(e, item.href)}
-                    onMouseLeave={(e) => e.target.blur()}
-                    className="quantum-nav-btn relative rounded-lg focus:outline-none focus:ring-0 overflow-visible z-10"
+                    onMouseLeave={(e) => {
+                      // FORZAR BLUR AL SALIR EL MOUSE TAMBIÉN
+                      e.target.blur();
+                    }}
+                    className="quantum-nav-btn relative overflow-hidden rounded-lg focus:outline-none focus:ring-0"
                   >
-                    <img
-                      src="/src/assets/spider.svg"
-                      alt="Astro Rift Games"
-                      className="absolute -top-4 -left-4 h-10 md:h-12 object-contain z-20 pointer-events-none"
-                    />
                     <span className="relative z-10">{item.label}</span>
                   </button>
                 ))}
@@ -169,23 +166,22 @@ function Nav() {
           </div>
 
           {/* Opciones del menú móvil con efectos - VERSIÓN FINAL CON MÁS ESPACIO */}
-          <div className="flex-1 px-6 py-8 mobile-menu-container overflow-visible">
-            <div className="mobile-menu-spacing overflow-visible relative z-50">
-              <br />
+          <div className="flex-1 px-6 py-8 mobile-menu-container">
+            <div className="mobile-menu-spacing">
               {menuItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={(e) => handleButtonClick(e, item.href)}
-                  onMouseLeave={(e) => e.target.blur()}
-                  className="quantum-mobile-btn w-full text-left rounded-xl transition-all duration-300 font-medium relative overflow-visible focus:outline-none focus:ring-0 bg-black/40"
+                  onMouseLeave={(e) => {
+                    // FORZAR BLUR AL SALIR EL MOUSE EN MÓVIL TAMBIÉN
+                    e.target.blur();
+                  }}
+                  className="quantum-mobile-btn w-full text-left rounded-xl transition-all duration-300 font-medium relative focus:outline-none focus:ring-0"
                 >
-                  <img
-                    src="/src/assets/spider.svg"
-                    alt="Astro Rift Games"
-                    className="fixed -top-2 -left-2 h-10 object-contain z-[9999] pointer-events-none"
-                    
-                  />
-                  <span className="quantum-mobile-text relative z-20">{item.label}</span>
+                  {/* USAR CLASE CSS ESPECÍFICA EN LUGAR DE INLINE STYLES */}
+                  <span className="quantum-mobile-text">
+                    {item.label}
+                  </span>
                 </button>
               ))}
             </div>
