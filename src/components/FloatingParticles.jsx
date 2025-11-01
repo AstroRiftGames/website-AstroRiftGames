@@ -34,14 +34,18 @@ const FloatingParticles = ({
       particle.style.pointerEvents = 'none';
       
       if (halloweenMode) {
+        // ===== MODO HALLOWEEN: FANTASMAS CON IMAGEN =====
+        
         // Tamaño aleatorio para los fantasmas
         const size = Math.random() * 40 + 30; // 30-70px
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         
+        // USAR IMAGEN EN LUGAR DE SVG
+        // Coloca tu imagen en: public/images/ghost.png
         particle.innerHTML = `
           <img 
-            src="/images/ghost.svg" 
+            src="/src/assets/ghost.svg" 
             alt="ghost" 
             style="
               width: 100%; 
