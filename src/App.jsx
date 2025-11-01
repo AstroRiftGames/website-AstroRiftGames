@@ -8,14 +8,12 @@ function App() {
   return (
     <LanguageProvider>
       <div className="bg-black text-white min-h-screen relative">
-        {/* FANTASMAS FLOTANTES DE HALLOWEEN */}
         <FloatingParticles 
-          particleCount={25}
-          colors={['#ff6b35', '#f7931e', '#9d4edd', '#c77dff']} // Colores Halloween
+          particleCount={40}
+          colors={['#f97316', '#ea580c', '#fb923c', '#fdba74']}
           enableGlow={true}
           speed="slow"
           className="global-particles"
-          halloweenMode={true} // ⭐ ACTIVAR MODO HALLOWEEN
         />
         
         <Nav />
