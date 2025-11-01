@@ -21,7 +21,7 @@ const translations = {
       followUs: "Síguenos en:"
     },
     hero: {
-      description: "Games from beyond",
+      description: "Creamos experiencias interactivas, memorables y únicas para jugadores de todo el mundo.",
       learnMore: "Conocé más",
       viewGames: "Ver Juegos"
     },
@@ -140,7 +140,7 @@ const translations = {
       followUs: "Follow us:"
     },
     hero: {
-      description: "Games from beyond",
+      description: "We create unique, memorable and interactive experiences for players around the world.",
       learnMore: "Learn More",
       viewGames: "View Games"
     },

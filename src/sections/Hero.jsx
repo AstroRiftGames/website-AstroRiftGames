@@ -35,14 +35,9 @@ const Hero = () => {
           />
         </div>
         
-        {/* <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed text-center">
-          {t('hero.description')}
-        </p> */}
-        <br />
         <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed text-center">
-          <strong>{t('hero.description')}</strong>
+          {t('hero.description')}
         </p>
-        <br />
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
             onClick={scrollToAbout}
