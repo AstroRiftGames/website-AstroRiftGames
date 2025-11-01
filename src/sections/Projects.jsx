@@ -60,10 +60,10 @@ const Projects = () => {
                   src={slash.image} 
                   alt={slash.title}
                   className="object-cover "
-                  style={{borderRadius: '1.5rem', borderBottomLeftRadius:'0', borderBottomRightRadius:'0', width: '100%', padding: '1rem'}}
+                  style={{justifySelf: 'center', borderRadius: '12px', borderBottomLeftRadius:'0', borderBottomRightRadius:'0', minHeight: '50&', width: '100%',}}
                 />
                 
-                <div className="absolute top-7.5 right-7.5">
+                <div className="absolute top-4 right-4">
                   <span className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {slash.status}
                   </span>
@@ -118,10 +118,9 @@ const Projects = () => {
                   src={game.image} 
                   alt={game.title}
                   className="w-full h-64 object-cover "
-                  style={{padding: '1rem', borderRadius: '1.5rem'}}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-7.5 right-7.5">
+                <div className="absolute top-4 right-4">
                   <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {game.status}
                   </span>
