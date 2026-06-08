@@ -33,7 +33,10 @@ const Projects = () => {
       title: t('projects.games.slash.title'),
       description: t('projects.games.slash.description'),
       image: "/images/SlashEmOut.png",
-      link: "", // Agrega el enlace cuando esté disponible
+      link: t('projects.games.slash.storeUrl'),
+      storeBadge: t('projects.games.slash.storeBadge'),
+      storeLabel: t('projects.games.slash.storeLabel'),
+      cta: t('projects.games.slash.cta'),
       genre: t('projects.games.slash.genre'),
       status: t('projects.games.slash.status'),
       features: t('projects.games.slash.features')
@@ -64,7 +67,7 @@ const Projects = () => {
                 />
                 
                 <div className="absolute top-4 right-4">
-                  <span className="bg-gradient-to-r from-indigo-400 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {slash.status}
                   </span>
                 </div>
@@ -94,15 +97,20 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                <div className="flex gap-4 mt-auto">
-                  <span
+                <div className="flex flex-col sm:flex-row gap-4 mt-auto">
+                  <a
                     href={slash.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gray-600 hover:bg-gray-700 !text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 transform hover:scale-105"
+                    aria-label={`${slash.cta} - ${slash.storeLabel}`}
+                    className="inline-flex w-full max-w-60 items-center justify-center rounded-lg transition-all duration-300 transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-indigo-400"
                   >
-                    {t('projects.comingSoon')}
-                  </span>
+                    <img
+                      src={slash.storeBadge}
+                      alt={slash.storeLabel}
+                      className="block h-auto w-full"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
