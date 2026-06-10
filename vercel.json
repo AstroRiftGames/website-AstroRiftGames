@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/app-ads.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "astroriftgames.com"
+        }
+      ],
+      "destination": "https://www.astroriftgames.com/app-ads.txt",
+      "permanent": true
+    }
+  ]
+}
