@@ -530,9 +530,9 @@ button:focus-visible {
   display: block;
   width: 100%;
   height: 100%;
-  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
   padding: 1px; /* acts as border width */
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(124, 58, 237, 0.2));
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(79, 70, 229, 0.15));
 }
 
 .scifi-image-wrapper::before {
@@ -540,14 +540,14 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, transparent 40%, transparent 60%, rgba(124, 58, 237, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, transparent 40%, transparent 60%, rgba(79, 70, 229, 0.1) 100%);
   z-index: 2;
 }
 
 .scifi-image-inner {
   width: 100%;
   height: 100%;
-  clip-path: polygon(15.5px 0, 100% 0, 100% calc(100% - 15.5px), calc(100% - 15.5px) 100%, 0 100%, 0 15.5px);
+  clip-path: polygon(19.5px 0, 100% 0, 100% calc(100% - 19.5px), calc(100% - 19.5px) 100%, 0 100%, 0 19.5px);
   background: #0d0d1e;
   overflow: hidden;
 }
@@ -571,41 +571,89 @@ button:focus-visible {
   margin: 4rem 0;
 }
 
-/* Refined secondary sci-fi outline button */
+/* ========================
+   UNIFIED BUTTON SYSTEM
+   ======================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important; /* 14px */
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 4px !important; /* Slightly angular shape, not pill */
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  border: 1px solid transparent !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(1) !important;
+}
+
+.btn-primary:disabled {
+  background: #374151 !important;
+  color: #9ca3af !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+.btn-secondary,
 .scifi-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: rgba(13, 13, 30, 0.6) !important;
   border: 1px solid rgba(139, 92, 246, 0.4) !important; /* Thin violet border */
-  color: #ffffff !important; /* Solid white text with strong contrast */
+  color: #ffffff !important; /* Solid white text */
   font-family: 'Orbitron', sans-serif !important;
   font-weight: 600 !important;
-  font-size: 0.875rem !important; /* text-sm equivalent */
+  font-size: 0.875rem !important;
   padding: 0.75rem 1.5rem !important;
-  border-radius: 4px !important; /* small/medium border radius, not fully rounded */
+  border-radius: 4px !important;
   transition: all 0.3s ease !important;
   cursor: pointer !important;
-  text-transform: none !important; /* Title Case */
+  text-transform: none !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
   text-decoration: none !important;
 }
 
+.btn-secondary:hover:not(:disabled),
 .scifi-btn-secondary:hover {
   background: rgba(139, 92, 246, 0.15) !important; /* subtle tinted fill */
   border-color: rgba(139, 92, 246, 0.8) !important;
-  transform: translateY(-2px) !important;
+  transform: translateY(-2px) scale(1.03) !important;
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25) !important;
 }
 
+.btn-secondary:active:not(:disabled),
 .scifi-btn-secondary:active {
-  transform: translateY(0) !important;
+  transform: translateY(0) scale(1) !important;
 }
 
+.btn-secondary svg,
 .scifi-btn-secondary svg {
   transition: transform 0.3s ease;
 }
 
+.btn-secondary:hover svg,
 .scifi-btn-secondary:hover svg {
   transform: translateX(4px);
 }

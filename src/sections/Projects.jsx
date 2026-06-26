@@ -38,6 +38,18 @@ const Projects = () => {
     features: t('projects.games.slash.features')
   };
 
+  const renderScifiImage = (src, alt) => (
+    <div className="scifi-image-wrapper aspect-video w-full">
+      <div className="scifi-image-inner">
+        <img 
+          src={src} 
+          alt={alt}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
+        />
+      </div>
+    </div>
+  );
+
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -52,49 +64,35 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Featured Project: Slash 'em Out */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-24">
-          {/* Image */}
-          <div className="lg:col-span-7">
-            <div className="scifi-image-wrapper aspect-video w-full">
-              <div className="scifi-image-inner">
-                <img 
-                  src={slash.image} 
-                  alt={slash.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+        {/* Latest Release Subcategory Divider */}
+        <div className="text-center mb-16 mt-12 relative max-w-5xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent mx-auto mb-4"></div>
+          <h4 className="text-base font-bold tracking-widest text-indigo-400 uppercase">
+            {t('projects.latestRelease')}
+          </h4>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-indigo-500/15 to-transparent mt-4"></div>
+        </div>
+
+        {/* Featured Project: Slash 'em Out (Open Editorial Showcase) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-28">
+          {/* Image (Visually Dominant) */}
+          <div className="lg:col-span-8">
+            {renderScifiImage(slash.image, slash.title)}
           </div>
 
           {/* Details */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <span className="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-2 block">
-              {t('projects.featured')}
-            </span>
-            
-            <h3 className="text-4xl font-bold mb-2 text-white leading-tight">
+          <div className="lg:col-span-4 flex flex-col justify-center">
+            <h3 className="text-4xl font-bold mb-1 text-white leading-tight">
               {slash.title}
             </h3>
             
-            <p className="text-indigo-400 font-semibold mb-4 text-sm tracking-wide">
-              {slash.genre}
+            <p className="text-indigo-400 font-semibold mb-5 text-sm tracking-wide">
+              {slash.genre.replace(/ - /g, ' · ')} · Android
             </p>
             
-            <p className="text-gray-300 leading-relaxed mb-6 text-base">
+            <p className="text-gray-300 leading-relaxed mb-8 text-base">
               {slash.description}
             </p>
-            
-            <div className="flex flex-wrap gap-2 mb-6">
-              {slash.features.map((feature, index) => (
-                <span 
-                  key={index}
-                  className="bg-indigo-500/5 text-gray-400 px-3 py-1 rounded text-xs border border-indigo-500/10"
-                >
-                  {feature}
-                </span>
-              ))}
-            </div>
             
             <div>
               <a
@@ -114,29 +112,27 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Separator */}
-        <hr className="editorial-separator" />
+        {/* conceptual heading split */}
+        <div className="text-center my-28 relative max-w-5xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent mx-auto mb-4"></div>
+          <h4 className="text-base font-bold tracking-widest text-indigo-400 uppercase">
+            {t('projects.otherProjects')}
+          </h4>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-indigo-500/15 to-transparent mt-4"></div>
+        </div>
 
-        {/* Secondary Projects List (Slalom Layout) */}
-        <div className="space-y-20">
+        {/* Secondary Projects List (Slalom Layout - Visually Smaller) */}
+        <div className="space-y-24 max-w-5xl mx-auto">
           {games.map((game, index) => (
             <div key={game.id}>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Image (alternate position on desktop using lg:order-last) */}
-                <div className={`lg:col-span-7 ${index % 2 === 0 ? '' : 'lg:order-last'}`}>
-                  <div className="scifi-image-wrapper aspect-video w-full">
-                    <div className="scifi-image-inner">
-                      <img 
-                        src={game.image} 
-                        alt={game.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
+                <div className={`lg:col-span-6 ${index % 2 === 0 ? '' : 'lg:order-last'}`}>
+                  {renderScifiImage(game.image, game.title)}
                 </div>
 
                 {/* Details */}
-                <div className="lg:col-span-5 flex flex-col justify-center">
+                <div className="lg:col-span-6 flex flex-col justify-center">
                   <h3 className="text-3xl font-bold mb-2 text-white leading-tight">
                     {game.title}
                   </h3>
@@ -165,7 +161,7 @@ const Projects = () => {
                       href={game.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="scifi-btn-secondary"
+                      className="btn btn-secondary"
                     >
                       <span>{t('projects.viewProject')}</span>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -41,15 +41,18 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
             onClick={scrollToAbout}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="btn btn-primary"
           >
             {t('hero.learnMore')}
           </button>
           <button 
             onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-            className="border-2 border-indigo-600 text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+            className="btn btn-secondary"
           >
-            {t('hero.viewGames')}
+            <span>{t('hero.viewGames')}</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
       </div>

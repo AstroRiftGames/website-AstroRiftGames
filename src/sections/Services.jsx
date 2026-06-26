@@ -105,7 +105,7 @@ const Services = () => {
         <div className="mt-16">
           <button 
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="btn btn-primary"
           >
             {t('services.cta')}
           </button>

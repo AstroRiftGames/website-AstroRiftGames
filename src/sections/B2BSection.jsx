@@ -110,7 +110,7 @@ const B2BSection = () => {
             </p>
             <button 
               onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="btn btn-primary"
             >
               Solicitar Consulta Gratuita
             </button>

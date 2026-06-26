@@ -69,6 +69,17 @@ const translations = {
     },
     projects: {
       featured: "Destacado",
+      latestRelease: "Último lanzamiento",
+      availablePlay: "Disponible ahora en Google Play",
+      otherProjects: "Otros proyectos",
+      facts: {
+        status: "Estado",
+        statusVal: "Lanzado",
+        platform: "Plataforma",
+        platformVal: "Android",
+        store: "Tienda",
+        storeVal: "Google Play"
+      },
       title: "Nuestros Juegos",
       subtitle: "Explorá los mundos que hemos creado con pasión y dedicación",
       games: {
@@ -90,6 +101,7 @@ const translations = {
           title: "Slash 'em Out!", 
           description: "Juego de acción casual en 2D donde moverse es atacar. Cada salto elimina enemigos y exige precisión, mezclando reflejos, estrategia y ritmo frenético.",
           genre: "Acción - 2D - Mobile",
+          hook: "Moverse es atacar.",
           features: ["Plataformas", "Estrategia", "Android"],
           status: "Disponible",
           cta: "Descargalo ahora",
@@ -194,6 +206,17 @@ const translations = {
     },
     projects: {
       featured: "Featured",
+      latestRelease: "Latest Release",
+      availablePlay: "Available now on Google Play",
+      otherProjects: "Other Projects",
+      facts: {
+        status: "Status",
+        statusVal: "Released",
+        platform: "Platform",
+        platformVal: "Android",
+        store: "Store",
+        storeVal: "Google Play"
+      },
       title: "Our Games",
       subtitle: "Explore the worlds we have created with passion and dedication",
       games: {
@@ -215,6 +238,7 @@ const translations = {
           title: "Slash 'em Out!",
           description: "A 2D casual action game where moving is attacking. Every jump eliminates enemies and demands precision, combining reflexes, strategy, and frenetic pace.",
           genre: "Action - 2D - Mobile",
+          hook: "Moving is attacking.",
           features: ["Platformer", "Strategy", "Android"],
           status: "Available",
           cta: "Download now",
