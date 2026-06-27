@@ -657,4 +657,10 @@ button:focus-visible {
 .scifi-btn-secondary:hover svg {
   transform: translateX(4px);
 }
+
+.scifi-image-wrapper:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.8) !important;
+  outline-offset: 4px !important;
+}
+
 

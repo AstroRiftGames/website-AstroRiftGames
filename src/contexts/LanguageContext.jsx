@@ -108,10 +108,12 @@ const translations = {
           storeLabel: "Disponible en Google Play",
           storeUrl: "https://play.google.com/store/apps/details?id=com.astroriftgames.slashemout",
           storeBadge: "/images/google-play-badge.svg",
+          watchTrailerOnYoutube: "Ver trailer de Slash 'em Out en YouTube"
         }
       },
       playNow: "Jugar Ahora",
       viewProject: "Ver Proyecto",
+      watchTrailer: "Ver Trailer",
       comingSoon: "Próximamente",
     },
     contact: {
@@ -245,10 +247,12 @@ const translations = {
           storeLabel: "Available on Google Play",
           storeUrl: "https://play.google.com/store/apps/details?id=com.astroriftgames.slashemout",
           storeBadge: "/images/google-play-badge.svg",
+          watchTrailerOnYoutube: "Watch Slash 'em Out trailer on YouTube"
         }
       },
       playNow: "Play Now",
       viewProject: "View Project",
+      watchTrailer: "Watch Trailer",
       comingSoon: "Coming Soon",
     },
     contact: {

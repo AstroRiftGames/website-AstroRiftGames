@@ -1,5 +1,73 @@
 // src/sections/Projects.jsx
+import { useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import slashTeaser from '../assets/videos/teaser.mp4';
+
+const ProjectMedia = ({ src, alt, videoSrc, linkUrl, ariaLabel }) => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (!videoSrc || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (videoRef.current) {
+      videoRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(err => {
+          console.log("Autoplay blocked or paused:", err);
+        });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!videoSrc) return;
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  };
+
+  const Container = linkUrl ? 'a' : 'div';
+
+  return (
+    <Container 
+      href={linkUrl}
+      target={linkUrl ? "_blank" : undefined}
+      rel={linkUrl ? "noopener noreferrer" : undefined}
+      aria-label={ariaLabel}
+      className={`scifi-image-wrapper aspect-video w-full block group relative ${linkUrl ? 'cursor-pointer focus-visible:outline-none' : ''}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleMouseEnter}
+      onBlur={handleMouseLeave}
+    >
+      <div className="scifi-image-inner relative w-full h-full">
+        {/* Static Image */}
+        <img 
+          src={src} 
+          alt={alt}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}
+        />
+        
+        {/* Muted Video Preview */}
+        {videoSrc && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            muted
+            playsInline
+            loop
+            preload="metadata"
+            poster={src}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+          />
+        )}
+      </div>
+    </Container>
+  );
+};
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -12,7 +80,9 @@ const Projects = () => {
       image: "/images/corvus_logo_SinNombre.png",
       link: "https://astroriftgames.itch.io/project-corvus",
       genre: t('projects.games.corvus.genre'),
-      features: t('projects.games.corvus.features')
+      features: t('projects.games.corvus.features'),
+      video: "", // stays static
+      trailerUrl: ""
     },
     {
       id: 2,
@@ -21,7 +91,9 @@ const Projects = () => {
       image: "/images/MuecasGameLogo.jpg",
       link: "https://astroriftgames.itch.io/muecas",
       genre: t('projects.games.muecas.genre'),
-      features: t('projects.games.muecas.features')
+      features: t('projects.games.muecas.features'),
+      video: "", // stays static
+      trailerUrl: ""
     }
   ];
   
@@ -35,20 +107,10 @@ const Projects = () => {
     storeLabel: t('projects.games.slash.storeLabel'),
     cta: t('projects.games.slash.cta'),
     genre: t('projects.games.slash.genre'),
-    features: t('projects.games.slash.features')
+    features: t('projects.games.slash.features'),
+    video: slashTeaser, // Slash 'em Out uses the local MP4 for hover preview
+    trailerUrl: "https://www.youtube.com/watch?v=GoBtHEHc7IM" // Store YouTube trailer URL
   };
-
-  const renderScifiImage = (src, alt) => (
-    <div className="scifi-image-wrapper aspect-video w-full">
-      <div className="scifi-image-inner">
-        <img 
-          src={src} 
-          alt={alt}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
-        />
-      </div>
-    </div>
-  );
 
   return (
     <section id="projects" className="py-20 px-4">
@@ -77,7 +139,13 @@ const Projects = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-28">
           {/* Image (Visually Dominant) */}
           <div className="lg:col-span-8">
-            {renderScifiImage(slash.image, slash.title)}
+            <ProjectMedia 
+              src={slash.image} 
+              alt={slash.title} 
+              videoSrc={slash.video} 
+              linkUrl={slash.trailerUrl} 
+              ariaLabel={t('projects.games.slash.watchTrailerOnYoutube')} 
+            />
           </div>
 
           {/* Details */}
@@ -94,7 +162,7 @@ const Projects = () => {
               {slash.description}
             </p>
             
-            <div>
+            <div className="flex flex-wrap gap-4 items-center">
               <a
                 href={slash.link}
                 target="_blank"
@@ -128,7 +196,7 @@ const Projects = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Image (alternate position on desktop using lg:order-last) */}
                 <div className={`lg:col-span-6 ${index % 2 === 0 ? '' : 'lg:order-last'}`}>
-                  {renderScifiImage(game.image, game.title)}
+                  <ProjectMedia src={game.image} alt={game.title} videoSrc={game.video} />
                 </div>
 
                 {/* Details */}
@@ -156,7 +224,7 @@ const Projects = () => {
                     ))}
                   </div>
                   
-                  <div>
+                  <div className="flex flex-wrap gap-4">
                     <a 
                       href={game.link}
                       target="_blank"
@@ -168,6 +236,20 @@ const Projects = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </a>
+                    {game.trailerUrl && (
+                      <a 
+                        href={game.trailerUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                      >
+                        <span>{t('projects.watchTrailer')}</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.75 12a2.75 2.75 0 11-5.5 0 2.75 2.75 0 015.5 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.5 12h5.25M3.25 12h5.25" />
+                        </svg>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
