@@ -32,14 +32,26 @@ const translations = {
       viewGames: "Ver Juegos"
     },
     about: {
-      title: "Quiénes Somos",
-      description1: "un equipo de desarrolladores independientes que crea videojuegos con pasión y creatividad.",
-      description2: "Nos encanta imaginar, construir y compartir mundos únicos.",
-      description3: "Nuestro objetivo es diseñar experiencias memorables que nos gustaría jugar, y que inviten a otros a vivir aventuras que dejen huella.",
-      stats: {
-        games: "Juegos Publicados",
-        passion: "Pasión"
-      }
+      eyebrow: "Sobre nosotros",
+      title: "Juegos indie y soporte de desarrollo",
+      description1: "Astro Rift Games es un estudio independiente que crea juegos originales con foco en gameplay, atmósfera y mecánicas memorables.",
+      description2: "Además de nuestros propios proyectos, ofrecemos soporte de outsourcing para estudios y equipos, desde sistemas de gameplay y prototipos hasta desarrollo en Unity y C# listo para producción.",
+      capabilities: {
+        originalGames: {
+          title: "Juegos originales",
+          text: "Diseñamos y desarrollamos juegos originales con foco en diversión, atmósfera y mecánicas memorables."
+        },
+        unity: {
+          title: "Unity & C#",
+          text: "Experiencia en Unity y C# para construir sistemas de juego robustos, escalables y optimizados."
+        },
+        outsourcing: {
+          title: "Soporte de outsourcing",
+          text: "Soporte de desarrollo flexible adaptado a tus necesidades, desde prototipos hasta producción completa."
+        }
+      },
+      ctaServices: "Ver servicios",
+      ctaContact: "Contactanos"
     },
     services: {
       title: "Nuestros Servicios",
@@ -177,14 +189,26 @@ const translations = {
       viewGames: "View Games"
     },
     about: {
-      title: "Who We Are",
-      description1: "an independent development team that creates video games with passion and creativity.",
-      description2: "We love to imagine, build and share unique worlds.",
-      description3: "Our goal is to design memorable experiences that we would love to play, and that invite others to live adventures that leave a mark.",
-      stats: {
-        games: "Published Games",
-        passion: "Passion"
-      }
+      eyebrow: "About Us",
+      title: "Indie games & development support",
+      description1: "Astro Rift Games is an independent studio creating original games with a focus on gameplay, atmosphere and memorable mechanics.",
+      description2: "Alongside our own projects, we provide outsourcing support for studios and teams, from gameplay systems and prototypes to production-ready Unity and C# development.",
+      capabilities: {
+        originalGames: {
+          title: "Original Games",
+          text: "We design and build original games with a focus on fun, atmosphere and memorable mechanics."
+        },
+        unity: {
+          title: "Unity & C#",
+          text: "Deep expertise in Unity and C# to build robust, scalable and performance-ready game systems."
+        },
+        outsourcing: {
+          title: "Outsourcing Support",
+          text: "Flexible development support tailored to your needs — from prototypes to full production."
+        }
+      },
+      ctaServices: "View Services",
+      ctaContact: "Contact Us"
     },
     services: {
       title: "Our Services",
