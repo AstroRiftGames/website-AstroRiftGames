@@ -6,6 +6,7 @@ import LanguageToggle from './LanguageToggle';
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -29,6 +30,31 @@ function Nav() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
+  useEffect(() => {
+    const sectionHrefs = ['#projects', '#about', '#services', '#contact'];
+    const sections = sectionHrefs
+      .map((href) => document.querySelector(href))
+      .filter(Boolean);
+
+    if (!sections.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry) {
+          setActiveSection(`#${visibleEntry.target.id}`);
+        }
+      },
+      { rootMargin: '-35% 0px -50% 0px', threshold: [0.1, 0.25, 0.5] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   const menuItems = [
     { href: "#projects", label: t('nav.games') },
     { href: "#about", label: t('nav.studio') },
@@ -41,6 +67,7 @@ function Nav() {
   const handleInternalLinkClick = (event, href) => {
     event.preventDefault();
     setIsOpen(false);
+    setActiveSection(href);
 
     const target = document.querySelector(href);
     if (target) {
@@ -75,7 +102,8 @@ function Nav() {
                 key={item.label}
                 href={item.href}
                 onClick={(event) => handleInternalLinkClick(event, item.href)}
-                className="site-nav__link"
+                className={`site-nav__link ${activeSection === item.href ? 'site-nav__link--active' : ''}`}
+                aria-current={activeSection === item.href ? 'page' : undefined}
               >
                 {item.label}
               </a>
@@ -141,7 +169,8 @@ function Nav() {
               key={item.label}
               href={item.href}
               onClick={(event) => handleInternalLinkClick(event, item.href)}
-              className="mobile-nav-panel__link"
+              className={`mobile-nav-panel__link ${activeSection === item.href ? 'mobile-nav-panel__link--active' : ''}`}
+              aria-current={activeSection === item.href ? 'page' : undefined}
             >
               {item.label}
             </a>

@@ -117,11 +117,15 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+        <div className="max-w-6xl mx-auto mb-14 md:mb-16">
+          <div className="w-20 h-px bg-gradient-to-r from-indigo-400 to-transparent mb-5" />
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-400 mb-4">
+            {t('projects.eyebrow')}
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white mb-4">
             {t('projects.title')}
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl leading-8 text-gray-300/90 max-w-2xl">
             {t('projects.subtitle')}
           </p>
         </div>

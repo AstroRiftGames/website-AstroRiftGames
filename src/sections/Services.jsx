@@ -6,113 +6,97 @@ const Services = () => {
 
   const services = [
     {
-      title: t('services.items.b2b.title'),
-      description: t('services.items.b2b.description'),
-      icon: "🎯",
-      features: t('services.items.b2b.features')
+      eyebrow: '01',
+      title: t('services.items.advergames.title'),
+      description: t('services.items.advergames.description')
     },
     {
+      eyebrow: '02',
       title: t('services.items.custom.title'),
-      description: t('services.items.custom.description'),
-      icon: "💻",
-      features: t('services.items.custom.features')
+      description: t('services.items.custom.description')
     },
     {
-      title: t('services.items.art.title'),
-      description: t('services.items.art.description'),
-      icon: "🎨",
-      features: t('services.items.art.features')
+      eyebrow: '03',
+      title: t('services.items.production.title'),
+      description: t('services.items.production.description')
     }
-    // Eliminé la tarjeta de diseño de sonido
   ];
 
+  const scrollToContact = (event) => {
+    event.preventDefault();
+
+    const target = document.getElementById('contact');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', '#contact');
+    }
+  };
+
   return (
-    <section id="services" className="py-20 px-4 bg-black">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
-          {t('services.title')}
-        </h2>
-        <p className="text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
-          {t('services.subtitle')}
-        </p>
-        
-        {/* Cambié el grid a 3 columnas en lugar de 4 para que se vea mejor */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <section id="services" className="py-20 md:py-24 px-4 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mb-4 md:mb-5">
+          <div className="w-20 h-px bg-gradient-to-r from-indigo-400 to-transparent mb-5" />
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-400 mb-4">
+            {t('services.eyebrow')}
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white mb-4">
+            {t('services.title')}
+          </h2>
+          <p className="text-lg md:text-xl leading-8 text-gray-300/90 max-w-xl">
+            {t('services.subtitle')}
+          </p>
+        </div>
+
+        <div className="space-y-0 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <div 
-              key={index}
-              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700 hover:border-indigo-500 transition-all duration-300 transform hover:scale-105 hover:shadow-indigo-500/20 flex flex-col h-full min-h-[400px]"
-            >
-              <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+            <div key={service.title}>
+              <div className="grid grid-cols-1 md:grid-cols-[64px_minmax(0,4fr)_minmax(0,6fr)] gap-4 md:gap-6 py-5 md:py-6">
+                <div className="flex items-start gap-2 md:pt-1">
+                  <span className="mt-1 min-w-6 text-xs font-bold tracking-[0.16em] text-indigo-100/90">
+                    {service.eyebrow}
+                  </span>
+                  <div className="hidden md:block h-px flex-1 max-w-4 bg-gradient-to-r from-indigo-400/22 to-transparent mt-3" />
+                </div>
+
+                <div>
+                  <h3 className="max-w-[460px] text-2xl md:text-[1.55rem] lg:text-[1.68rem] font-bold leading-tight text-white">
+                    {service.title}
+                  </h3>
+                </div>
+
+                <div>
+                  <p className="text-base leading-7 text-gray-300/90 max-w-xl">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              
-              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-400 transition-colors">
-                {service.title}
-              </h3>
-              
-              <p className="text-gray-300 leading-relaxed mb-6 flex-1">
-                {service.description}
-              </p>
-              
-              <div className="space-y-2 mt-auto">
-                {service.features.map((feature, featureIndex) => (
-                  <div 
-                    key={featureIndex}
-                    className="flex items-center justify-center text-sm text-indigo-400 bg-indigo-500/10 rounded-full py-1 px-3"
-                  >
-                    <span className="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
-                    {feature}
-                  </div>
-                ))}
-              </div>
+
+              {index < services.length - 1 && (
+                <div className="h-px w-full bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent" />
+              )}
             </div>
           ))}
         </div>
-        
-        {/* Sección de caso de éxito */}
-        <div className="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
-          <h3 className="text-3xl font-bold mb-6 text-white">
-            {t('services.caseStudy.title')}
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-left">
-              <p className="text-gray-300 leading-relaxed mb-4">
-                {t('services.caseStudy.description')}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
-                  {t('services.caseStudy.metrics.engagement')}
-                </span>
-                <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">
-                  {t('services.caseStudy.metrics.reach')}
-                </span>
-                <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">
-                  {t('services.caseStudy.metrics.roi')}
-                </span>
-              </div>
-            </div>
-            <div className="text-center">
-              <img 
-                src="/images/MuecasGameLogo.jpg" 
-                alt="Müecas Game"
-                className="w-48 h-48 object-cover rounded-xl mx-auto shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-16">
-          <button 
-            onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="btn btn-primary"
+
+        <div className="mt-5 md:mt-6 flex flex-col items-start md:items-center gap-4 text-left md:text-center">
+          <p className="text-sm md:text-base text-gray-300/80">
+            {t('services.closingText')}
+          </p>
+          <a
+            href="#contact"
+            onClick={scrollToContact}
+            className="btn btn-secondary"
           >
-            {t('services.cta')}
-          </button>
+            <span>{t('services.cta')}</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
   
-export default Services
+export default Services;

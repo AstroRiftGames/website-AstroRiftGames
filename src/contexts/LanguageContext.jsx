@@ -54,36 +54,25 @@ const translations = {
       ctaContact: "Contactanos"
     },
     services: {
-      title: "Nuestros Servicios",
-      subtitle: "Ofrecemos soluciones completas para dar vida a tus ideas de videojuegos, desde proyectos independientes hasta estrategias comerciales B2B",
+      eyebrow: "Servicios",
+      title: "Juegos a medida y experiencias interactivas",
+      subtitle: "Para marcas, estudios y equipos.",
       items: {
-        b2b: {
-          title: "Desarrollo B2B",
-          description: "Creamos videojuegos personalizados para empresas que buscan promocionar su marca de manera innovadora.",
-          features: ["Juegos Mobile", "Juegos Web", "Branding Interactivo"]
+        advergames: {
+          title: "Advergames y experiencias de marca",
+          description: "Creamos juegos promocionales y experiencias interactivas que conectan marcas con audiencias de forma memorable."
         },
         custom: {
-          title: "Desarrollo a medida",
-          description: "Creamos videojuegos desde cero, adaptados completamente a tus ideas y visión única.",
-          features: ["Motor Unity", "Programación C#", "Multiplataforma"]
+          title: "Desarrollo de juegos a medida",
+          description: "Diseñamos y desarrollamos juegos desde cero, adaptados a objetivos creativos, técnicos y comerciales específicos."
         },
-        art: {
-          title: "Arte y animación",
-          description: "Diseño visual único y animaciones fluidas que dan vida a cada proyecto.",
-          features: ["Arte 2D", "Diseño de Personajes", "Diseño UI/UX"]
-        }
-        // Eliminé la sección de sound (diseño de sonido)
-      },
-      caseStudy: {
-        title: "Caso de Éxito: Müecas Game",
-        description: "Desarrollamos un juego promocional que logró aumentar significativamente el engagement de la marca, creando una conexión emocional única entre el producto y los consumidores.",
-        metrics: {
-          engagement: "+500% Engagement",
-          reach: "Alcance Viral",
-          roi: "ROI Positivo"
+        production: {
+          title: "Unity y soporte de producción",
+          description: "Brindamos soporte de desarrollo para estudios y equipos, desde sistemas en Unity y C# hasta features listas para producción."
         }
       },
-      cta: "Solicitar Cotización"
+      closingText: "Construyamos algo juntos.",
+      cta: "Contactanos"
     },
     projects: {
       featured: "Destacado",
@@ -98,8 +87,9 @@ const translations = {
         store: "Tienda",
         storeVal: "Google Play"
       },
-      title: "Nuestros Juegos",
-      subtitle: "Explorá los mundos que hemos creado con pasión y dedicación",
+      eyebrow: "Juegos",
+      title: "Juegos originales de Astro Rift",
+      subtitle: "Descubrí nuestro último lanzamiento y los mundos que estamos creando.",
       games: {
         corvus: {
           title: "Project C.O.R.V.U.S.",
@@ -211,36 +201,25 @@ const translations = {
       ctaContact: "Contact Us"
     },
     services: {
-      title: "Our Services",
-      subtitle: "We offer complete solutions to bring your video game ideas to life, from independent projects to B2B commercial strategies",
+      eyebrow: "Services",
+      title: "Custom games and interactive experiences",
+      subtitle: "For brands, studios and teams.",
       items: {
-        b2b: {
-          title: "B2B Development",
-          description: "We create custom video games for companies looking to promote their brand in an innovative way.",
-          features: ["Mobile Games", "Web Games", "Interactive Branding"]
+        advergames: {
+          title: "Advergames & Branded Experiences",
+          description: "We create promotional games and interactive experiences that help brands connect with audiences in memorable ways."
         },
         custom: {
-          title: "Custom Development",
-          description: "We create video games from scratch, fully adapted to your ideas and unique vision.",
-          features: ["Unity Engine", "C# Programming", "Multiplatform"]
+          title: "Custom Game Development",
+          description: "We design and build games from scratch, tailored to specific creative, technical and business goals."
         },
-        art: {
-          title: "Art & Animation",
-          description: "Unique visual design and fluid animations that bring each project to life.",
-          features: ["2D Art", "Character Design", "UI/UX Design"]
-        }
-        // Eliminé la sección de sound (diseño de sonido)
-      },
-      caseStudy: {
-        title: "Success Story: Müecas Game",
-        description: "We developed a promotional game that significantly increased brand engagement, creating a unique emotional connection between the product and consumers.",
-        metrics: {
-          engagement: "+500% Engagement",
-          reach: "Viral Reach",
-          roi: "Positive ROI"
+        production: {
+          title: "Unity & Production Support",
+          description: "We support studios and teams with development work, from Unity and C# systems to production-ready features."
         }
       },
-      cta: "Request Quote"
+      closingText: "Let’s build something together.",
+      cta: "Contact Us"
     },
     projects: {
       featured: "Featured",
@@ -255,8 +234,9 @@ const translations = {
         store: "Store",
         storeVal: "Google Play"
       },
-      title: "Our Games",
-      subtitle: "Explore the worlds we have created with passion and dedication",
+      eyebrow: "Games",
+      title: "Original games from Astro Rift",
+      subtitle: "Discover our latest release and the worlds we are building.",
       games: {
         corvus: {
           title: "Project C.O.R.V.U.S.",
