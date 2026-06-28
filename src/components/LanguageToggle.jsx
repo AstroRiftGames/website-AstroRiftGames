@@ -1,26 +1,26 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 
 const LanguageToggle = () => {
   const { currentLanguage, toggleLanguage } = useLanguage();
+  const isSpanish = currentLanguage === 'es';
 
   return (
     <button
+      type="button"
       onClick={toggleLanguage}
-      className="quantum-nav-btn relative px-3 py-2 text-white text-sm flex items-center gap-2 min-w-[60px] justify-center rounded-lg"
-      title={currentLanguage === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+      className="language-toggle"
+      title={isSpanish ? 'Switch to English' : 'Cambiar a Espanol'}
+      aria-label={isSpanish ? 'Switch to English' : 'Cambiar a Espanol'}
     >
-      {/* Bandera actual */}
-      <div className="relative w-5 h-4 rounded-sm overflow-hidden">
-        <img 
-          src={currentLanguage === 'es' ? '/images/Flag_of_Spain.png' : '/images/Flag_of_the_United_States.png'}
-          alt={currentLanguage === 'es' ? 'Bandera de España' : 'Flag of USA'}
-          className="w-full h-full object-cover"
+      <span className="language-toggle__flag" aria-hidden="true">
+        <img
+          src={isSpanish ? '/images/Flag_of_Spain.png' : '/images/Flag_of_the_United_States.png'}
+          alt=""
+          className="language-toggle__flag-img"
         />
-      </div>
-      
-      {/* Texto del idioma */}
-      <span className="font-medium">
-        {currentLanguage === 'es' ? 'ES' : 'EN'}
+      </span>
+      <span className="language-toggle__code">
+        {isSpanish ? 'ES' : 'EN'}
       </span>
     </button>
   );

@@ -14,11 +14,17 @@ export const useLanguage = () => {
 const translations = {
   es: {
     nav: {
-      about: "Nosotros",
-      services: "Servicios", 
-      projects: "Proyectos",
+      games: "Juegos",
+      studio: "Estudio",
+      services: "Servicios",
       contact: "Contacto",
-      followUs: "Síguenos en:"
+      playSlash: "Jugar Slash 'em Out",
+      followUs: "Síguenos en:",
+      primaryLabel: "Navegación principal",
+      sectionLabel: "Secciones",
+      homeLabel: "Ir al inicio",
+      openMenu: "Abrir menú",
+      closeMenu: "Cerrar menú"
     },
     hero: {
       description: "Creamos experiencias interactivas, memorables y únicas para jugadores de todo el mundo.",
@@ -153,11 +159,17 @@ const translations = {
   
   en: {
     nav: {
-      about: "About Us",
+      games: "Games",
+      studio: "Studio",
       services: "Services",
-      projects: "Projects", 
       contact: "Contact",
-      followUs: "Follow us:"
+      playSlash: "Play Slash 'em Out",
+      followUs: "Follow us:",
+      primaryLabel: "Primary navigation",
+      sectionLabel: "Sections",
+      homeLabel: "Go to home",
+      openMenu: "Open menu",
+      closeMenu: "Close menu"
     },
     hero: {
       description: "We create unique, memorable and interactive experiences for players around the world.",
