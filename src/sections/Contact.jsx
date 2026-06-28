@@ -249,7 +249,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto">
         
         {/* Header principal de la sección */}
-        <div className="max-w-6xl mx-auto mb-6 md:mb-8">
+        <div className="max-w-6xl mx-auto mb-4 md:mb-5">
           <div className="w-20 h-px bg-gradient-to-r from-indigo-400 to-transparent mb-5" />
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-400 mb-4">
             {t('contact.eyebrow')}
@@ -263,7 +263,7 @@ const Contact = () => {
         </div>
 
         <div id="contact-form" className="max-w-3xl mx-auto">
-          <div className="bg-transparent border border-gray-900/40 rounded-xl p-5 md:p-6">
+          <div className="bg-black/[0.02] border border-indigo-400/10 rounded-lg p-4 md:p-5">
               {submitted ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
@@ -415,7 +415,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn btn-primary w-full sm:w-auto"
+                      className="btn btn-primary contact-submit-btn w-full sm:w-auto"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center">

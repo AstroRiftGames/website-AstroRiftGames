@@ -657,6 +657,31 @@ button:focus-visible {
 .scifi-btn-secondary:hover svg {
   transform: translateX(4px);
 }
+.contact-submit-btn.btn.btn-primary {
+  background: rgba(13, 13, 30, 0.72) !important;
+  border: 1px solid rgba(139, 92, 246, 0.58) !important;
+  color: #ffffff !important;
+  min-height: 46px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035), 0 4px 12px rgba(0, 0, 0, 0.24) !important;
+}
+
+.contact-submit-btn.btn.btn-primary:hover:not(:disabled),
+.contact-submit-btn.btn.btn-primary:focus-visible:not(:disabled) {
+  background: rgba(124, 58, 237, 0.18) !important;
+  border-color: rgba(168, 85, 247, 0.92) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.26) !important;
+}
+
+.contact-submit-btn.btn.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(1) !important;
+}
+
+.contact-submit-btn.btn.btn-primary:disabled {
+  background: rgba(31, 41, 55, 0.65) !important;
+  border-color: rgba(75, 85, 99, 0.7) !important;
+  color: #9ca3af !important;
+}
 
 .scifi-image-wrapper:focus-visible {
   outline: 2px solid rgba(139, 92, 246, 0.8) !important;
