@@ -125,8 +125,10 @@ const translations = {
       comingSoon: "Próximamente",
     },
     contact: {
-      title: "Contacto",
-      subtitle: "¿Tenés alguna consulta, propuesta o querés trabajar con nosotros? ¡Escribinos!",
+      eyebrow: "Contacto",
+      title: "Construyamos algo juntos",
+      subtitle: "Consultas, propuestas, outsourcing o ideas de juego — escribinos.",
+      supportLine: "Contanos qué necesitás y te responderemos.",
       form: {
         name: "Nombre",
         email: "Email",
@@ -272,8 +274,10 @@ const translations = {
       comingSoon: "Coming Soon",
     },
     contact: {
-      title: "Contact",
-      subtitle: "Have any questions, proposals or want to work with us? Write to us!",
+      eyebrow: "Contact",
+      title: "Let’s build something together",
+      subtitle: "Questions, proposals, outsourcing or game ideas — write to us.",
+      supportLine: "Tell us what you need and we’ll get back to you.",
       form: {
         name: "Name",
         email: "Email",

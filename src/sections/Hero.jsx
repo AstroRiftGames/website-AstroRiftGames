@@ -35,7 +35,7 @@ const Hero = () => {
           />
         </div>
         
-        <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed text-center">
+        <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto opacity-90 leading-8 text-center">
           {t('hero.description')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

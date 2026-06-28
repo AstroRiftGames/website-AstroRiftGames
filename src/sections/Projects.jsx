@@ -162,7 +162,7 @@ const Projects = () => {
               {slash.genre.replace(/ - /g, ' · ')} · Android
             </p>
             
-            <p className="text-gray-300 leading-relaxed mb-8 text-base">
+            <p className="text-gray-300/95 leading-7 mb-8 text-base max-w-xl">
               {slash.description}
             </p>
             
@@ -213,7 +213,7 @@ const Projects = () => {
                     {game.genre}
                   </p>
                   
-                  <p className="text-gray-300 leading-relaxed mb-6 text-base">
+                  <p className="text-gray-300/95 leading-7 mb-6 text-base max-w-xl">
                     {game.description}
                   </p>
                   

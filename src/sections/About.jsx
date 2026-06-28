@@ -58,7 +58,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-16 md:py-20 px-4 overflow-hidden">
+    <section id="about" className="py-20 md:py-24 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 items-start">
           <div className="lg:col-span-7 max-w-3xl">
@@ -72,7 +72,7 @@ const About = () => {
               <span className="block">{titleParts[1]}</span>
             </h2>
 
-            <div className="space-y-4 text-base md:text-lg leading-8 text-gray-300/90">
+            <div className="space-y-4 text-base md:text-lg leading-8 text-gray-300/95 max-w-2xl">
               <p>{t('about.description1')}</p>
               <p>{t('about.description2')}</p>
             </div>
