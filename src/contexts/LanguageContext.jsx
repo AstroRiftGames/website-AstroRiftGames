@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+﻿import { createContext, useContext, useState, useEffect } from 'react';
 
 const LanguageContext = createContext();
 
@@ -157,7 +157,10 @@ const translations = {
       }
     },
     footer: {
-      backToTop: "Volver arriba",
+      backToTop: "\u2191 Volver arriba",
+      tagline: "Juegos indie y experiencias interactivas.",
+      linksLabel: "Enlaces del pie de página",
+      contactLabel: "Contacto",
       copyright: "Todos los derechos reservados."
     },
     common: {
@@ -310,7 +313,10 @@ const translations = {
       }
     },
     footer: {
-      backToTop: "Back to top",
+      backToTop: "\u2191 Back to top",
+      tagline: "Indie games & interactive experiences.",
+      linksLabel: "Footer links",
+      contactLabel: "Contact",
       copyright: "All rights reserved."
     },
     common: {
