@@ -22,6 +22,12 @@ const Hero = () => {
       className="relative min-h-[calc(100vh-80px)] overflow-hidden px-4 py-8 text-white md:py-10"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_76%_36%,rgba(99,102,241,0.18),transparent_34%),radial-gradient(circle_at_18%_20%,rgba(139,92,246,0.12),transparent_30%)]" />
+      <img
+        src={heroIsotype}
+        alt=""
+        className="hero-brand-isotype pointer-events-none absolute right-[-22%] top-1/2 z-0 h-auto w-[40rem] max-w-none -translate-y-1/2 opacity-[0.09] sm:right-[-14%] sm:w-[50rem] sm:opacity-[0.11] lg:right-[1%] lg:w-[58rem] lg:opacity-[0.19]"
+        aria-hidden="true"
+      />
 
       <div className="mx-auto grid min-h-[calc(100vh-160px)] max-w-6xl grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12 lg:-translate-y-4">
         <div className="relative z-10 max-w-3xl lg:col-span-7">
@@ -71,13 +77,6 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="pointer-events-none absolute inset-y-0 right-[-24%] -z-0 flex w-[76%] items-center justify-end opacity-16 sm:right-[-18%] sm:w-[64%] lg:relative lg:right-[-5%] lg:z-0 lg:col-span-5 lg:min-h-[430px] lg:w-auto lg:justify-center lg:opacity-100" aria-hidden="true">
-          <img
-            src={heroIsotype}
-            alt=""
-            className="hero-brand-isotype h-auto w-[30rem] max-w-none opacity-[0.34] sm:w-[36rem] lg:w-[34rem] lg:opacity-[0.36]"
-          />
-        </div>
       </div>
     </section>
   );

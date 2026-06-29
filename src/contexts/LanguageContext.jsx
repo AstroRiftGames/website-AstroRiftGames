@@ -28,8 +28,8 @@ const translations = {
     },
     hero: {
       headlineLine1: "Juegos originales.",
-      headlineLine2: "Experiencias interactivas a medida.",
-      supportingText: "Creamos juegos para jugadores y proyectos interactivos para marcas, estudios y equipos.",
+      headlineLine2: "Experiencias interactivas.",
+      supportingText: "Creamos juegos para jugadores y experiencias a medida para marcas, estudios y equipos.",
       viewGames: "Ver juegos",
       viewServices: "Ver servicios",
       latestReleaseLabel: "Último lanzamiento:",
