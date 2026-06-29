@@ -1,7 +1,9 @@
 // src/sections/Projects.jsx
 import { useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { SectionReveal } from '../components/Index';
 import slashTeaser from '../assets/videos/teaser.mp4';
+
 
 const ProjectMedia = ({ src, alt, videoSrc, linkUrl, ariaLabel }) => {
   const videoRef = useRef(null);
@@ -114,7 +116,8 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+      <SectionReveal className="max-w-6xl mx-auto">
+
         
         {/* Header */}
         <div className="max-w-6xl mx-auto mb-14 md:mb-16">
@@ -264,7 +267,7 @@ const Projects = () => {
           ))}
         </div>
 
-      </div>
+      </SectionReveal>
     </section>
   );
 };

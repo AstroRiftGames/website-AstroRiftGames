@@ -32,12 +32,6 @@ const Footer = () => {
     }
   ];
 
-  const scrollToTop = (event) => {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    window.history.replaceState(null, '', '#hero');
-  };
-
   const handleInternalLinkClick = (event, href) => {
     event.preventDefault();
 
@@ -48,33 +42,39 @@ const Footer = () => {
     }
   };
 
+  const scrollToTop = (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.history.replaceState(null, '', '#hero');
+  };
+
   return (
     <footer className="relative border-t border-white/8 py-8 md:py-10">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/35 to-transparent" aria-hidden="true" />
 
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 md:gap-5">
-        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
           <div className="max-w-xl">
             <p className="text-sm font-semibold tracking-[0.18em] text-indigo-300/95">
-                Astro Rift Games
-              </p>
-              <p className="mt-1 text-sm leading-6 text-gray-300/85 md:text-[0.95rem]">
-                {t('footer.tagline')}
-              </p>
-            </div>
+              Astro Rift Games
+            </p>
+            <p className="mt-1 text-sm leading-6 text-gray-300/85 md:text-[0.95rem]">
+              {t('footer.tagline')}
+            </p>
+          </div>
 
           <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 md:justify-end" aria-label={t('footer.linksLabel')}>
-            {internalLinks.map((item) => (
-              <span key={item.href} className="flex min-h-10 items-center gap-x-3">
+            {internalLinks.map((item, index) => (
+              <span key={item.href} className="inline-flex min-h-10 items-center gap-x-3">
                 <a
                   href={item.href}
                   onClick={(event) => handleInternalLinkClick(event, item.href)}
-                  className="text-sm font-semibold tracking-[0.04em] text-gray-200/90 transition-colors duration-200 hover:text-white focus-visible:text-white"
+                  className="text-sm font-semibold tracking-[0.04em] text-gray-100/95 transition-colors duration-200 hover:text-indigo-200 focus-visible:text-indigo-200"
                 >
                   {item.label}
                 </a>
-                {item.href !== internalLinks[internalLinks.length - 1].href && (
-                  <span className="text-indigo-300/45" aria-hidden="true">&middot;</span>
+                {index < internalLinks.length - 1 && (
+                  <span className="text-indigo-300/55" aria-hidden="true">&middot;</span>
                 )}
               </span>
             ))}
@@ -129,7 +129,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

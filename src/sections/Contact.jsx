@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
+import { SectionReveal } from '../components/Index';
+
 
 const Contact = () => {
   const { t, currentLanguage } = useLanguage();
@@ -246,7 +248,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 md:py-24 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <SectionReveal className="max-w-6xl mx-auto">
+
         
         {/* Header principal de la sección */}
         <div className="max-w-6xl mx-auto mb-4 md:mb-5">
@@ -439,7 +442,7 @@ const Contact = () => {
               )}
             </div>
           </div>
-      </div>
+      </SectionReveal>
     </section>
   );
 };

@@ -1,5 +1,7 @@
 // src/sections/Services.jsx
 import { useLanguage } from '../contexts/LanguageContext';
+import { SectionReveal } from '../components/Index';
+
 
 const Services = () => {
   const { t } = useLanguage();
@@ -34,7 +36,7 @@ const Services = () => {
 
   return (
     <section id="services" className="py-20 md:py-24 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <SectionReveal className="max-w-6xl mx-auto">
         <div className="max-w-6xl mx-auto mb-4 md:mb-5">
           <div className="w-20 h-px bg-gradient-to-r from-indigo-400 to-transparent mb-5" />
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-400 mb-4">
@@ -94,8 +96,9 @@ const Services = () => {
             </svg>
           </a>
         </div>
-      </div>
+      </SectionReveal>
     </section>
+
   );
 };
   

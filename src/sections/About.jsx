@@ -1,5 +1,7 @@
 // src/sections/About.jsx
 import { useLanguage } from '../contexts/LanguageContext';
+import { SectionReveal } from '../components/Index';
+
 
 const capabilityIcons = {
   games: (
@@ -59,12 +61,12 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 md:py-24 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <SectionReveal className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 items-start">
           <div className="lg:col-span-7 max-w-3xl">
             <div className="w-20 h-px bg-gradient-to-r from-indigo-400 to-transparent mb-5" />
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-400 mb-4">
-              {t('about.eyebrow')}
+               {t('about.eyebrow')}
             </p>
 
             <h2 className="max-w-[780px] text-4xl md:text-[2.55rem] lg:text-[2.8rem] font-bold leading-[1.08] text-white mb-6">
@@ -129,8 +131,9 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </SectionReveal>
     </section>
+
   );
 };
 
