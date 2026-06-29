@@ -9,6 +9,13 @@ function Nav() {
   const [activeSection, setActiveSection] = useState('');
   const { t } = useLanguage();
 
+  const menuItems = [
+    { href: '#about', label: t('nav.studio') },
+    { href: '#services', label: t('nav.services') },
+    { href: '#projects', label: t('nav.games') },
+    { href: '#contact', label: t('nav.contact') }
+  ];
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 32);
 
@@ -31,27 +38,31 @@ function Nav() {
   }, [isOpen]);
 
   useEffect(() => {
-    const sectionHrefs = ['#projects', '#about', '#services', '#contact'];
+    const sectionHrefs = menuItems.map((item) => item.href);
     const getSections = () => sectionHrefs
       .map((href) => document.querySelector(href))
       .filter(Boolean);
 
     const handleActiveSection = () => {
-      const hero = document.querySelector('#hero');
       const sections = getSections();
-      const activationLine = window.innerHeight * 0.26;
-
-      if (hero) {
-        const heroRect = hero.getBoundingClientRect();
-        if (heroRect.bottom > activationLine) {
-          setActiveSection('');
-          return;
-        }
-      }
+      const viewportCenter = window.innerHeight * 0.5;
+      const bandHalfHeight = window.innerHeight * 0.18;
+      const bandTop = viewportCenter - bandHalfHeight;
+      const bandBottom = viewportCenter + bandHalfHeight;
 
       const active = sections
-        .filter((section) => section.getBoundingClientRect().top <= activationLine)
-        .at(-1);
+        .map((section) => {
+          const rect = section.getBoundingClientRect();
+          const intersectsBand = rect.top < bandBottom && rect.bottom > bandTop;
+
+          return {
+            section,
+            intersectsBand,
+            centerDistance: Math.abs(((rect.top + rect.bottom) / 2) - viewportCenter)
+          };
+        })
+        .filter(({ intersectsBand }) => intersectsBand)
+        .sort((left, right) => left.centerDistance - right.centerDistance)[0]?.section;
 
       setActiveSection(active ? `#${active.id}` : '');
     };
@@ -65,13 +76,6 @@ function Nav() {
       window.removeEventListener('resize', handleActiveSection);
     };
   }, []);
-
-  const menuItems = [
-    { href: "#projects", label: t('nav.games') },
-    { href: "#about", label: t('nav.studio') },
-    { href: "#services", label: t('nav.services') },
-    { href: "#contact", label: t('nav.contact') }
-  ];
 
   const slashStoreUrl = t('projects.games.slash.storeUrl');
 
