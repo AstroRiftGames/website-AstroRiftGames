@@ -32,27 +32,38 @@ function Nav() {
 
   useEffect(() => {
     const sectionHrefs = ['#projects', '#about', '#services', '#contact'];
-    const sections = sectionHrefs
+    const getSections = () => sectionHrefs
       .map((href) => document.querySelector(href))
       .filter(Boolean);
 
-    if (!sections.length) return undefined;
+    const handleActiveSection = () => {
+      const hero = document.querySelector('#hero');
+      const sections = getSections();
+      const activationLine = window.innerHeight * 0.26;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visibleEntry) {
-          setActiveSection(`#${visibleEntry.target.id}`);
+      if (hero) {
+        const heroRect = hero.getBoundingClientRect();
+        if (heroRect.bottom > activationLine) {
+          setActiveSection('');
+          return;
         }
-      },
-      { rootMargin: '-35% 0px -50% 0px', threshold: [0.1, 0.25, 0.5] }
-    );
+      }
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+      const active = sections
+        .filter((section) => section.getBoundingClientRect().top <= activationLine)
+        .at(-1);
+
+      setActiveSection(active ? `#${active.id}` : '');
+    };
+
+    handleActiveSection();
+    window.addEventListener('scroll', handleActiveSection, { passive: true });
+    window.addEventListener('resize', handleActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', handleActiveSection);
+      window.removeEventListener('resize', handleActiveSection);
+    };
   }, []);
 
   const menuItems = [

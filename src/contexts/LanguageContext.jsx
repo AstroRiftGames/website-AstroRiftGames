@@ -27,9 +27,13 @@ const translations = {
       closeMenu: "Cerrar menú"
     },
     hero: {
-      description: "Creamos experiencias interactivas, memorables y únicas para jugadores de todo el mundo.",
-      learnMore: "Conocé más",
-      viewGames: "Ver Juegos"
+      headlineLine1: "Juegos originales.",
+      headlineLine2: "Experiencias interactivas a medida.",
+      supportingText: "Creamos juegos para jugadores y proyectos interactivos para marcas, estudios y equipos.",
+      viewGames: "Ver juegos",
+      viewServices: "Ver servicios",
+      latestReleaseLabel: "Último lanzamiento:",
+      latestReleaseTitle: "Slash 'em Out"
     },
     about: {
       eyebrow: "Sobre nosotros",
@@ -176,9 +180,13 @@ const translations = {
       closeMenu: "Close menu"
     },
     hero: {
-      description: "We create unique, memorable and interactive experiences for players around the world.",
-      learnMore: "Learn More",
-      viewGames: "View Games"
+      headlineLine1: "Original games.",
+      headlineLine2: "Custom interactive experiences.",
+      supportingText: "We create games for players and interactive projects for brands, studios and teams.",
+      viewGames: "View Games",
+      viewServices: "View Services",
+      latestReleaseLabel: "Latest release:",
+      latestReleaseTitle: "Slash 'em Out"
     },
     about: {
       eyebrow: "About Us",
